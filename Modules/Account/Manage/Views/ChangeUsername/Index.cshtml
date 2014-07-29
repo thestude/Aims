@@ -1,0 +1,17 @@
+﻿@model AIMS.Modules.Account.Models.ChangeUsernameInputModel
+
+@using (Html.BeginForm("Index", "ChangeUsername"))
+{
+    @Html.ValidationSummary("Error")
+    @Html.AntiForgeryToken()
+
+    <fieldset>
+        <legend>@ViewBag.Title</legend>
+
+        @Html.EditorForModel()
+
+        <div class="buttons">
+            <button>Change Username</button>
+        </div>
+    </fieldset>
+}

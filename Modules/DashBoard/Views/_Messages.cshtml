@@ -1,0 +1,101 @@
+﻿@*Beginning of inbox-list.shtml*@
+                <!--#include virtual="/includes/teasers/inbox-list.shtml" -->
+<!-- Inbox List -->
+<div class="mail-page row">
+    <div class="col-sm-3 col-md-2">
+        <div class="mail-nav">
+            <ul>
+                <li><a href="#" data-toggle="modal" data-target="#newMessage"><i class="fa fa-edit"></i>New Message</a></li>
+                <li class="divider hidden-xs"></li>
+                <li class="active hidden-xs"><a href="inbox.shtml"><i class="fa fa-envelope"></i>Inbox (2)</a></li>
+                <li class="hidden-xs"><a href="#"><i class="fa fa-star starred"></i>Starred</a></li>
+                <li class="hidden-xs"><a href="#"><i class="fa fa-external-link"></i>Sent</a></li>
+                <li class="hidden-xs"><a href="#"><i class="fa fa-trash-o"></i>Deleted</a></li>
+                <li class="divider"></li>
+                <li class="hidden-xs">Message Priority</li>
+                <li class="hidden-xs clearfix"><a href="#"><i class="fa fa-circle red pull-left"></i>Urgent</a></li>
+                <li class="hidden-xs clearfix"><a href="#"><i class="fa fa-circle light-gray pull-left"></i>Normal</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-sm-9 col-md-10">
+        <div class="btn-toolbar float-toolbar">
+            <div class="btn-group btn-group-sm">
+                <a class="btn show-tooltip" title="Delete selected" href="#"><i class="fa fa-trash-o"></i></a>
+                <a class="btn show-tooltip" title="Mark as unread" href="#"><i class="fa fa-flag"></i></a>
+                <a class="btn show-tooltip" title="Refresh" href="#"><i class="fa fa-repeat"></i></a>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-advance dataTable">
+                <thead>
+                    <tr>
+                        <th style="width: 18px">
+                            <input type="checkbox" /></th>
+                        <th style="width: 18px"></th>
+                        <th>From</th>
+                        <th>Subject</th>
+                        <th class="hidden-sm">Message Type</th>
+                        <th class="text-right">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-flag-red">
+                        <td>
+                            <input type="checkbox" /></td>
+                        <td><a href="#"><i class="fa fa-star"></i></a></td>
+                        <td><strong>ADPH > Area 11</strong></td>
+                        <td><strong><a href="messages-item.shtml">Status concerning 12/25/2012 tornados</a></strong></td>
+                        <td class="hidden-sm"><strong>Community Issue</strong></td>
+                        <td class="text-right"><strong>today 20:23</strong></td>
+                    </tr>
+                    <tr class="table-flag-light-gray">
+                        <td>
+                            <input type="checkbox" /></td>
+                        <td><a href="#"><i class="fa fa-star"></i></a></td>
+                        <td><strong>None</strong></td>
+                        <td><strong><a href="messages-item.shtml">De-Activation of Aims for Hurricane Isaac Data Collection</a></strong></td>
+                        <td class="hidden-sm"><strong>Public Health Message</strong></td>
+                        <td class="text-right"><strong>yesterday 11:12</strong></td>
+                    </tr>
+                    <tr class="table-flag-light-gray">
+                        <td>
+                            <input type="checkbox" /></td>
+                        <td><a href="#"><i class="fa fa-star starred"></i></a></td>
+                        <td>None</td>
+                        <td><a href="messages-item.shtml">Activation of Aims for Hurricane Isaac Data Collection</a></td>
+                        <td class="hidden-sm">Public Health Message</td>
+                        <td class="text-right">8/31/2012 10:09</td>
+                    </tr>
+                    <tr class="table-flag-red">
+                        <td>
+                            <input type="checkbox" /></td>
+                        <td><a href="#"><i class="fa fa-star starred"></i></a></td>
+                        <td>ADPH > Area 11</td>
+                        <td><a href="messages-item.shtml">Status concerning 12/25/2012 tornados</a></td>
+                        <td class="hidden-sm">Community Issue</td>
+                        <td class="text-right">12/25/2012 8:23</td>
+                    </tr>
+                    <tr class="table-flag-light-gray">
+                        <td>
+                            <input type="checkbox" /></td>
+                        <td><a href="#"><i class="fa fa-star"></i></a></td>
+                        <td>None</td>
+                        <td><a href="messages-item.shtml">De-Activation of Aims for Hurricane Isaac Data Collection</a></td>
+                        <td class="hidden-sm">Public Health Message</td>
+                        <td class="text-right">9/01/2012 08:12</td>
+                    </tr>
+                    <tr class="table-flag-light-gray">
+                        <td>
+                            <input type="checkbox" /></td>
+                        <td><a href="#"><i class="fa fa-star"></i></a></td>
+                        <td>None</td>
+                        <td><a href="messages-item.shtml">Activation of Aims for Hurricane Isaac Data Collection</a></td>
+                        <td class="hidden-sm">Public Health Message</td>
+                        <td class="text-right">8/31/2012 10:09:59 AM</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+﻿<!--#include virtual="includes/top.shtml" -->
+<div class="messages">
+
+    <div class="content-header">
+        <h1><i class="fa fa-users"></i> Contacts</h1>
+    </div>
+
+    <!-- Find a Contact -->
+    <div class="row">
+        <div class="col-sm-12">
+            <form action="#" class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <div class="input-group well well-sm">
+                            <input type="text" class="form-control" placeholder="Start Typing a Contact Name to Filter the List Below">
+                            <div class="input-group-btn">
+                                <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i> Search</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <!--#include virtual="includes/contact-card.shtml" -->
+
+                    @Html.Partial("_ContactCard")
+                
+        </div>
+
+        <div class="col-sm-4"><!--#include virtual="includes/contact-card.shtml" --></div>
+        <div class="col-sm-4"><!--#include virtual="includes/contact-card.shtml" --></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4"><!--#include virtual="includes/contact-card.shtml" --></div>
+        <div class="col-sm-4"><!--#include virtual="includes/contact-card.shtml" --></div>
+        <div class="col-sm-4"><!--#include virtual="includes/contact-card.shtml" --></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4"><!--#include virtual="includes/contact-card.shtml" --></div>
+        <div class="col-sm-4"><!--#include virtual="includes/contact-card.shtml" --></div>
+        <div class="col-sm-4"><!--#include virtual="includes/contact-card.shtml" --></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4"><!--#include virtual="includes/contact-card.shtml" --></div>
+        <div class="col-sm-4"><!--#include virtual="includes/contact-card.shtml" --></div>
+        <div class="col-sm-4"><!--#include virtual="includes/contact-card.shtml" --></div>
+    </div>
+
+</div>
+<!--#include virtual="includes/bottom.shtml" -->

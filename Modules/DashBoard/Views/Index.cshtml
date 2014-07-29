@@ -1,0 +1,208 @@
+﻿<div class="dashboard">
+
+    <!-- BEGIN Dashboard Header -->
+    <div class="content-header">
+        <div class="row">
+            <div class="col-lg-8 col-md-7 col-sm-6">
+                <h1><i class="fa fa-desktop"></i>Memorial Hospital Dashboard</h1>
+            </div>
+            <div class="col-lg-4 col-md-5 col-sm-6 right">
+                <div class="set-facility-status">
+                    <table class="table-condensed pull-right">
+                        <tr>
+                            <td>
+                                <p>
+                                    <strong>Facility Status</strong><br>
+                                    <a href="@Url.Action("Index", "FacilityStatus")">Manage <i class="fa fa-angle-right"></i></a>
+                                </p>
+                            </td>
+                            <td>
+                                <div class="btn-group btn-group-sm status-btns">
+                                    <button type="button" class="btn btn-success selected">Open</button>
+                                    <button type="button" class="btn btn-danger">Closed</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END Dashboard Header -->
+
+    <!-- BEGIN Dashboard Main Content -->
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-timeline">
+                <div class="box-title">
+                    <h3><i class="fa fa-calendar"></i>Timeline</h3>
+                    <div class="box-tool">
+                        <a href="#" data-toggle="modal" data-target="#newStatus"><i class="fa fa-plus"></i>New Status</a>
+                        <a data-action="collapse" href="#" title="Collapse"><i class="fa fa-chevron-up"></i></a>
+                        <a href="@Url.Action("Index", "TimeLine")" title="View the Full Timeline"><i class="fa fa-external-link-square"></i></a>
+                        <a data-action="close" href="#" title="Close"><i class="fa fa-times"></i></a>
+                    </div>
+                </div>
+                <div class="box-content">
+
+                    <!--#include virtual="includes/teasers/timeline.shtml" -->
+                    <!-- BEGIN Timeline -->
+                   
+                    @Html.Partial("_Timeline")
+                           
+                    <!-- <div class="more"><a href="timeline.shtml">View Full Timeline</a></div> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="box box-map">
+                <div class="box-title">
+                    <h3><i class="fa fa-map-marker"></i>Map</h3>
+                    <div class="box-tool">
+                        <a href="map.shtml" title="View the Full Map"><i class="fa fa-external-link-square"></i></a>
+                        <a data-action="collapse" href="#" title="Collapse"><i class="fa fa-chevron-up"></i></a>
+                        <a data-action="close" href="#" title="Close"><i class="fa fa-times"></i></a>
+                    </div>
+                </div>
+                <div class="box-content">
+
+                    <!--#include virtual="includes/teasers/map.shtml" -->
+                    @*Moved js file to module Scripts folder.*@
+                        
+                    <!-- BEGIN Map Scripts -->
+
+
+                    <!-- END Map Scipts -->
+
+
+                    <div style="position: relative">
+                        <div class="map-legend">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs">
+                                <li class="first"><a href="#layers" data-toggle="tab"><i class="fa fa-check-square-o"></i>Layers</a></li>
+                                <li><a href="#legend" data-toggle="tab"><i class="fa fa-key"></i>Legend</a></li>
+                                <li class="pull-right"><a href="#" data-toggle="collapse" data-target="#map-tools" class="collapsed"><i id="collapse-icon" class="fa fa-chevron-up"></i></a></li>
+                            </ul>
+                            <!-- Tab panes -->
+                            <div class="tab-content collapse" id="map-tools">
+                                <div class="tab-pane active" id="layers">
+                                    <form>
+                                        <div class="form-group">
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" checked>
+                                                <img src="Content/images/hospital-pointer.png" width="20" />
+                                                Hospital
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox">
+                                                <img src="Content/images/chc-pointer.png" width="20" />
+                                                Community Health Center
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox">
+                                                <img src="Content/images/nursing-pointer.png" width="20" />
+                                                Nursing Home
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox">
+                                                <img src="Content/images/ems-pointer.png" width="20" />
+                                                EMS
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" checked>
+                                                <span class="label label-large label-success">Open</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" checked>
+                                                <span class="label label-large label-important">Closed</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" checked>
+                                                <span class="label label-large label-warning">On Generator</span>
+                                            </label>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="tab-pane" id="legend">
+                                    <ul class="legend-list">
+                                        <li>
+                                            <img src="Content/images/hospital-pointer-green.png" width="20" />
+                                            Open</li>
+                                        <li>
+                                            <img src="Content/images/hospital-pointer-yellow.png" width="20" />
+                                            On Generator</li>
+                                        <li>
+                                            <img src="Content/images/hospital-pointer-red.png" width="20" />
+                                            Closed</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- BEGIN Map Container -->
+                        <div id="map"></div>
+                        <!-- END Map Container -->
+                    </div>
+
+                    @*TODO: end of file that will be moved into a partial view.*@
+                    <!-- <div class="more"><a href="map.shtml">View Full Map</a></div> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="box facility-status">
+                <div class="box-title">
+                    <h3><i class="fa fa-bar-chart-o"></i>Facility Status</h3>
+                    <div class="box-tool">
+                        <a href="@Url.Action("Index", "FacilityStatus")" title="Facility Status"><i class="fa fa-external-link-square"></i></a>
+                        <a data-action="collapse" href="#" title="Collapse"><i class="fa fa-chevron-up"></i></a>
+                        <a data-action="close" href="#" title="Close"><i class="fa fa-times"></i></a>
+                    </div>
+                </div>
+                <div class="box-content">
+                    @*TODO: move to partial view*@
+                    <!--#include virtual="includes/teasers/facility-status.shtml" -->
+                   
+                    @Html.Partial("_FacilityStatus") 
+                          
+                    
+                    @*TODO: end of file that will be moved into a partial view.*@
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="box box-inbox">
+                <div class="box-title">
+                    <h3><i class="fa fa-inbox"></i>Inbox</h3>
+                    <div class="box-tool">
+                        <a href="@Url.Action("Index", "MessageInbox")" title="Inbox"><i class="fa fa-external-link-square"></i></a>
+                        <a data-action="collapse" href="#" title="Collapse"><i class="fa fa-chevron-up"></i></a>
+                        <a data-action="close" href="#" title="Close"><i class="fa fa-times"></i></a>
+                    </div>
+                </div>
+
+                <!--#include virtual="includes/teasers/messages.shtml" -->
+                
+                @Html.Partial("_Inbox") 
+                            
+
+            </div>
+        </div>
+
+    </div>
+    <!-- END Dashboard Main Content -->
+</div>

@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<h2>Index</h2>
+@Html.ActionLink("Show Details", "Show", new { id = 4 })
+<br />
+@Html.ActionLink("New", "New")
+<br />
+@Html.ActionLink("Edit", "Edit", new { id = 4 })
+<br />
+@Html.ActionLink("Search for \"Foo Bar\"", "Search", new { keyword = "Foo Bar" })
+<br />
+@Html.ActionLink("Delete", "Delete", new { id = 4 })
+<br />
+<a class="clickme" href="#">Click Me</a>
+<br />
+@Url.Action("Show", "Example", new { id = 4 })
+<br />
+@{Html.RenderAction("Show", "Authorization", new { id = 4 });}
+@{Html.RenderPartial("_Form");}

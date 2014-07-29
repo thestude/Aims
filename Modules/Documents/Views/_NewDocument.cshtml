@@ -1,0 +1,58 @@
+﻿<!-- New Document Modal -->
+<div class="modal fade" id="newDocument" tabindex="-1" role="dialog" aria-labelledby="newDocumentLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form class="mail-compose form-horizontal" action="#">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="newDocumentLabel"><i class="fa fa-file-text"></i>Add a Document</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="" class="col-sm-3">Title</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="" class="col-sm-3">Description</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Select File</label>
+                        <div class="col-sm-9 controls">
+                            <div class="fileupload fileupload-new" data-provides="fileupload">
+                                <div class="input-group">
+                                    <div class="form-control uneditable-input">
+                                        <i class="fa fa-file fileupload-exists"></i>
+                                        <span class="fileupload-preview"></span>
+                                    </div>
+                                    <div class="input-group-btn">
+                                        <a class="btn bun-default btn-file">
+                                            <span class="fileupload-new">Select file</span>
+                                            <span class="fileupload-exists">Change</span>
+                                            <input type="file" class="file-input" />
+                                        </a>
+                                        <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Remove</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-share-square-o"></i>Submit</button>
+                        <a type="button" class="btn" data-dismiss="modal">Cancel</a>
+                    </div>
+                </div>
+           </form>
+        </div>
+    </div>
+</div>

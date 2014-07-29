@@ -1,0 +1,379 @@
+﻿@model AIMS.Modules.FacilitySetup.Models.FacilitySetUp
+
+<!--#include virtual="includes/top.shtml" -->
+<div class="edit-facility">
+
+    <div class="content-header">
+        <h1><i class="fa fa-edit"></i> Edit Facility</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <form class="form-horizontal" action="#">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <fieldset>
+                            <legend>Facility Information</legend>
+                            <div class="form-group">
+                                <label for="" class="col-sm-3">Facility Name</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" value="Memorial Hospital" />
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <br><br>
+
+                        <fieldset>
+                            <legend>Address</legend>
+                            <div class="form-group">
+                                <label for="" class="col-sm-3">Street Address</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" value="123 Street Name" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="col-sm-3">Facility Name</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" value="Mobile" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="col-sm-3">State</label>
+                                <div class="col-sm-9">
+                                    <select name="StateDropDownList" id="StateDropDownList" class="bs-select" data-width="100%">
+                                        <option value="">Select a state</option>
+                                        <option value="AL">Alabama</option>
+                                        <option value="AK">Alaska</option>
+                                        <option value="AZ">Arizona</option>
+                                        <option value="AR">Arkansas</option>
+                                        <option value="CA">California</option>
+                                        <option value="CO">Colorado</option>
+                                        <option value="CT">Connecticut</option>
+                                        <option value="DC">District of Columbia</option>
+                                        <option value="DE">Delaware</option>
+                                        <option value="FL">Florida</option>
+                                        <option value="GA">Georgia</option>
+                                        <option value="HI">Hawaii</option>
+                                        <option value="ID">Idaho</option>
+                                        <option value="IL">Illinois</option>
+                                        <option value="IN">Indiana</option>
+                                        <option value="IA">Iowa</option>
+                                        <option value="KS">Kansas</option>
+                                        <option value="KY">Kentucky</option>
+                                        <option value="LA">Louisiana</option>
+                                        <option value="ME">Maine</option>
+                                        <option value="MD">Maryland</option>
+                                        <option value="MA">Massachusetts</option>
+                                        <option value="MI">Michigan</option>
+                                        <option value="MN">Minnesota</option>
+                                        <option value="MS">Mississippi</option>
+                                        <option value="MO">Missouri</option>
+                                        <option value="MT">Montana</option>
+                                        <option value="NE">Nebraska</option>
+                                        <option value="NV">Nevada</option>
+                                        <option value="NH">New Hampshire</option>
+                                        <option value="NJ">New Jersey</option>
+                                        <option value="NM">New Mexico</option>
+                                        <option value="NY">New York</option>
+                                        <option value="NC">North Carolina</option>
+                                        <option value="ND">North Dakota</option>
+                                        <option value="OH">Ohio</option>
+                                        <option value="OK">Oklahoma</option>
+                                        <option value="OR">Oregon</option>
+                                        <option value="PA">Pennsylvania</option>
+                                        <option value="RI">Rhode Island</option>
+                                        <option value="SC">South Carolina</option>
+                                        <option value="SD">South Dakota</option>
+                                        <option value="TN">Tennessee</option>
+                                        <option value="TX">Texas</option>
+                                        <option value="UT">Utah</option>
+                                        <option value="VT">Vermont</option>
+                                        <option value="VA">Virginia</option>
+                                        <option value="WA">Washington</option>
+                                        <option value="WV">West Virginia</option>
+                                        <option value="WI">Wisconsin</option>
+                                        <option value="WY">Wyoming</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="col-sm-3">Zip Code</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" value="12345" />
+                                </div>
+                            </div>
+
+                        </fieldset>
+
+                        <br><br>
+
+                        <fieldset>
+                            <legend>Contacts</legend>
+
+                            <table class="table table-hover table-striped table-advance">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Title</th>
+                                        <th>Phone Number</th>
+                                        <th>Email Address</th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Bruce McNeal</strong></td>
+                                        <td>Administrative Contact</td>
+                                        <td>(619) 515-5311</td>
+                                        <td><a href="mailto:bmcneal@aimslive.org">bmcneal@aimslive.org</a></td>
+                                        <td align="right">
+                                            <a href="#" data-toggle="modal" data-target="#editContact" class="btn btn-xs btn-primary" title="edit"><i class="fa fa-edit"></i></a>
+                                            <a href="#" data-toggle="modal" data-target="#confirmDelete" class="btn btn-xs btn-default" title="delete"><i class="fa fa-trash-o"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Joseph McNeal</strong></td>
+                                        <td>Secondary Contact</td>
+                                        <td>(619) 515-5311</td>
+                                        <td><a href="mailto:jmcneal@aimslive.org">jmcneal@aimslive.org</a></td>
+                                        <td align="right">
+                                            <a href="#" data-toggle="modal" data-target="#editContact" class="btn btn-xs btn-primary" title="edit"><i class="fa fa-edit"></i></a>
+                                            <a href="#" data-toggle="modal" data-target="#confirmDelete" class="btn btn-xs btn-default" title="delete"><i class="fa fa-trash-o"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="well well-sm">
+                                <div class="form-group">
+                                    <div class="col-sm-3">
+                                        <label class="control-label">First Name</label>
+                                        <div class="controls">
+                                            <input class="form-control input-sm" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label class="control-label">Last Name</label>
+                                        <div class="controls">
+                                            <input class="form-control input-sm" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label class="control-label">Title</label>
+                                        <div class="controls">
+                                            <input class="form-control input-sm" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-3">
+                                        <label class="control-label">Phone Number</label>
+                                        <div class="controls">
+                                            <input class="form-control input-sm" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label class="control-label">Email</label>
+                                        <div class="controls">
+                                            <input class="form-control input-sm" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2 pad-for-no-label">
+                                        <!-- Form in modal instead
+                                        <button data-toggle="modal" data-target="#newContact" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Add Contact</button> -->
+                                        <button class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Add Contact</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </fieldset>
+                    </div>
+                </div>
+
+                <br><br>
+
+                <!-- Start Beds -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <fieldset>
+                            <legend>Beds</legend>
+
+                            <table class="table table-hover table-striped table-advance">
+                                <thead>
+                                    <tr>
+                                        <th>Bed Type</th>
+                                        <th>Licensed Capacity</th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Reserved Beds</td>
+                                        <td>102</td>
+                                        <td align="right">
+                                            <a href="#" data-toggle="modal" data-target="#editBedType" class="btn btn-xs btn-primary" title="edit"><i class="fa fa-edit"></i></a>
+                                            <a href="#" data-toggle="modal" data-target="#confirmDelete" class="btn btn-xs btn-default" title="delete"><i class="fa fa-trash-o"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Emergency Department Beds</td>
+                                        <td>84</td>
+                                        <td align="right">
+                                            <a href="#" data-toggle="modal" data-target="#editBedType" class="btn btn-xs btn-primary" title="edit"><i class="fa fa-edit"></i></a>
+                                            <a href="#" data-toggle="modal" data-target="#confirmDelete" class="btn btn-xs btn-default" title="delete"><i class="fa fa-trash-o"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Inpatient Trauma Beds</td>
+                                        <td>96</td>
+                                        <td align="right">
+                                            <a href="#" data-toggle="modal" data-target="#editBedType" class="btn btn-xs btn-primary" title="edit"><i class="fa fa-edit"></i></a>
+                                            <a href="#" data-toggle="modal" data-target="#confirmDelete" class="btn btn-xs btn-default" title="delete"><i class="fa fa-trash-o"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mortuary</td>
+                                        <td>42</td>
+                                        <td align="right">
+                                            <a href="#" data-toggle="modal" data-target="#editBedType" class="btn btn-xs btn-primary" title="edit"><i class="fa fa-edit"></i></a>
+                                            <a href="#" data-toggle="modal" data-target="#confirmDelete" class="btn btn-xs btn-default" title="delete"><i class="fa fa-trash-o"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Other</td>
+                                        <td>20</td>
+                                        <td align="right">
+                                            <a href="#" data-toggle="modal" data-target="#editBedType" class="btn btn-xs btn-primary" title="edit"><i class="fa fa-edit"></i></a>
+                                            <a href="#" data-toggle="modal" data-target="#confirmDelete" class="btn btn-xs btn-default" title="delete"><i class="fa fa-trash-o"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="well well-sm">
+                                <div class="form-group">
+                                    <div class="col-sm-3">
+                                        <label class="control-label">Bed Types</label>
+                                        <div class="controls">
+                                            <select data-placeholder="Add Bed Types" class="form-control input-sm">
+                                                <option value=""> </option>
+                                                <option>Reserved Beds</option>
+                                                <option>Emergency Department Beds</option>
+                                                <option>Inpatient Trauma Beds</option>
+                                                <option>Mortuary</option>
+                                                <option>Other</option>
+                                                <option>Nursing Home Beds</option>
+                                                <option>Respiratory Isolation Units</option>
+                                                <option>Respiratory Ventilators</option>
+                                                <option>Isolation Areas</option>
+                                                <option>Other Isolation Rooms</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label class="control-label">Licensed Capacity</label>
+                                        <div class="controls">
+                                            <input class="form-control input-sm" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2 pad-for-no-label">
+                                        <button class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Add Bed Type</button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </fieldset>
+                    </div>
+                </div>
+                <!-- End Beds -->
+
+                <br><br>
+
+                <!-- Start Staff -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <fieldset>
+                            <legend>Staff</legend>
+
+                            <label class="checkbox-inline"><input checked type="checkbox" value="Security"> Security</label>
+                            <label class="checkbox-inline"><input checked type="checkbox" value="Clerical"> Clerical</label>
+                            <label class="checkbox-inline"><input type="checkbox" value="Mental Health/ Social Workers"> Mental Health/ Social Workers</label>
+                            <label class="checkbox-inline"><input checked type="checkbox" value="Shelter Manager"> Shelter Manager</label>
+                            <label class="checkbox-inline"><input type="checkbox" value="Registered Nurses"> Registered Nurses</label>
+                            <label class="checkbox-inline"><input checked type="checkbox" value="Non-Licensed Support Staff"> Non-Licensed Support Staff</label>
+                            <label class="checkbox-inline"><input type="checkbox" value="Behavioral Health"> Behavioral Health</label>
+                            <label class="checkbox-inline"><input checked type="checkbox" value="EMS"> EMS</label>
+                            <label class="checkbox-inline"><input checked type="checkbox" value="Other"> Other</label>
+                            <label class="checkbox-inline"><input type="checkbox" value="DHR"> DHR</label>
+
+                        </fieldset>
+                    </div>
+                </div>
+                <!-- End Staff -->
+
+                <br><br>
+
+                <!-- Start Utilities -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <fieldset>
+                            <legend>Utilities</legend>
+
+                            <label class="checkbox-inline"><input checked type="checkbox" value="Power"> Power</label>
+                            <label class="checkbox-inline"><input type="checkbox" value="Water"> Water</label>
+                            <label class="checkbox-inline"><input checked type="checkbox" value="Information Technology"> Information Technology</label>
+                            <label class="checkbox-inline"><input type="checkbox" value="Cell Phones"> Cell Phones</label>
+                            <label class="checkbox-inline"><input type="checkbox" value="Other"> Other</label>
+                            <label class="checkbox-inline"><input type="checkbox" value="Elevators"> Elevators</label>
+                            <label class="checkbox-inline"><input checked type="checkbox" value="Telephone"> Telephone</label>
+                            <label class="checkbox-inline"><input type="checkbox" value="Generator"> Generator</label>
+                            <label class="checkbox-inline"><input checked type="checkbox" value="Vacuum Systems"> Vacuum Systems</label>
+                            <label class="checkbox-inline"><input checked type="checkbox" value="Potable Water"> Potable Water</label>
+                            <label class="checkbox-inline"><input type="checkbox" value="Heating and Cooling"> Heating and Cooling</label>
+                            <label class="checkbox-inline"><input type="checkbox" value="Sewer"> Sewer</label>
+                            <label class="checkbox-inline"><input type="checkbox" value="Telephone Connectivity"> Telephone Connectivity</label>
+                            <label class="checkbox-inline"><input checked type="checkbox" value="Computer/ Internet Connectivity"> Computer/ Internet Connectivity</label>
+
+                        </fieldset>
+                    </div>
+                </div>
+                <!-- End Utilities -->
+
+                <br><br>
+
+                <!-- Start Fuel -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <fieldset>
+                            <legend>Fuel</legend>
+
+                            <label class="checkbox-inline"><input type="checkbox" value="Diesel Fuel"> Diesel Fuel</label>
+                            <label class="checkbox-inline"><input type="checkbox" value="Gasoline"> Gasoline</label>
+                            <label class="checkbox-inline"><input checked type="checkbox" value="Propane"> Propane</label>
+                            <label class="checkbox-inline"><input checked type="checkbox" value="Natural Gas"> Natural Gas</label>
+
+                        </fieldset>
+                    </div>
+                </div>
+                <!-- End Fuel -->
+
+                <br><br>
+
+                <div class="well right">
+                    <button type="submit" class="btn btn-default"><i class="fa fa-refresh"></i> Reset</button>
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-share-square-o"></i> Save Changes</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+

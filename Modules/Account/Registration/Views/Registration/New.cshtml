@@ -1,0 +1,289 @@
+﻿@model AIMS.Modules.Account.Models.RegisterInputModel
+@{
+    ViewBag.Title = "Register";
+}
+
+            <!-- BEGIN Register Form -->
+<div id="form-register-wrapper" class="form-wrapper row">
+    <div class="col-sm-10 centered-col">
+        @using (Html.BeginForm("Create", "Registration",FormMethod.Post,new{id = "form-register"}))
+        {
+            @Html.ValidationSummary()
+            @Html.AntiForgeryToken()
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-1">
+                    <img src="~/content/images/aims-logo-300w.png" alt="Alabama Incident Management System" class="img-responsive centered">
+                </div>
+            </div>
+            <hr/>
+
+            <!-- <legend>@ViewBag.Title</legend> -->
+            <h3>Request Access</h3>
+                        
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="controls">
+                            <label for="register-firstName">First Name</label>
+                            <input type="text" id="register-firstName" class="form-control input-sm" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="controls">
+                            <label for="register-lastName">Last Name</label>
+                            <input type="text" id="register-lastName" class="form-control input-sm" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="controls">
+                            <label for="register-phoneNumber">Phone Number</label>
+                            <input type="text" id="register-phoneNumber" class="form-control input-sm" />
+                            <p class="help-block">Format xxx-xxx-xxx</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="controls">
+                            <label for="register-emailAddress">Email Address</label>
+                            <input type="text" id="register-emailAddress" class="form-control input-sm" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="controls">
+                            <label for="register-mobileCarier">Mobile Carrier</label>
+                            <select name="MobileCarrier" class="form-control input-sm" id="register-mobileCarrier">
+                                <option value="-1">Select</option>
+                                <option value="1">T-Mobile</option>
+                                <option value="2">AT&amp;T Wireless</option>
+                                <option value="3">Verizon</option>
+                                <option value="4">Alltel</option>
+                                <option value="5">Boost</option>
+                                <option value="6">Cingular Wireless</option>
+                                <option value="7">Famers Wireless</option>
+                                <option value="8">Metrocall</option>
+                                <option value="9">Metrocall 2-way</option>
+                                <option value="10">Southern LINC</option>
+                                <option value="11">Sprint (PCS)</option>
+                                <option value="12">Sprint (Nextel)</option>
+                                <option value="13">USA Mobility</option>
+                                <option value="14">Virgin Mobile</option>
+                                <option value="15">Cellular South</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="controls">
+                            <label for="register-mobileNumber">Mobile Number</label>
+                            <input type="text" id="register-mobileNumber" placeholder="xxx-xxx-xxx" class="form-control input-sm" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="controls">
+                            <label for="register-userType">User Type</label>
+                            <select id="register-userType" class="form-control input-sm" name="userType">
+                                <option selected="selected" value="-1">Select</option>
+                                <option value="0">Health Facility User</option>
+                                <option value="1">Organizational User</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="controls">
+                            <label for="register-username">Username</label>
+                            <input type="text" id="register-username" class="form-control input-sm" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- If User Type = Health Facility User -->
+            <div id="show-for-health-facility-user" class="hidden-fieldset well hide">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <div class="controls">
+                                <label for="register-facilityType">Facility Type</label>
+                                <select id="register-facilityType" class="form-control input-sm" name="facilityType">
+                                    <option selected="selected" value="-1">--Select--</option>
+                                    <option value="7">Hospital</option>
+                                    <option value="9">Nursing Home</option>
+                                    <option value="8">Medical Needs Shelter</option>
+                                    <option value="3">Community Health Centers</option>
+                                    <option value="5">EMS</option>
+                                    <option value="1">Alternate Care Site</option>
+                                    <option value="2">Blood Center</option>
+                                    <option value="4">Dialysis Center</option>
+                                    <option value="6">Evacuee Shelter</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <div class="controls">
+                                <label for="register-facility">Facility</label>
+                                <select id="register-facility" class="form-control input-sm" name="facility">
+                                    <option selected="selected" value="-1">--Select--</option>
+                                    <option value="1">Facility Name</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- If User Type = Organizational User -->
+            <div id="show-for-organizational-user" class="hidden-fieldset well hide">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <div class="controls">
+                                <label for="register-organization">Organization</label>
+                                <select id="register-organization" class="form-control input-sm" name="organization">
+                                    <option selected="selected" value="-1">--Select--</option>
+                                    <option value="1">Alabama Department of Public Health</option>
+                                    <option value="2">Alabama EMA</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <div class="controls">
+                                <label for="register-organization-region">Region</label>
+                                <select id="register-organization-region" class="form-control input-sm" name="organization-region">
+                                    <option selected="selected" value="-1">--Select--</option>
+                                    <option value="1">Region 1</option>
+                                    <option value="2">Region 2</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="controls">
+                            <label for="register-password">Password</label>
+                            <input type="password" id="register-password" class="form-control input-sm" />
+                            <p class="help-block">At least 6 characters long</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="controls">
+                            <label for="register-re-enter-password">Re-enter Password</label>
+                            <input type="text" id="register-re-enter-password" class="form-control input-sm" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        
+            <div class="form-group">
+                <div class="controls">
+                    <label class="checkbox">
+                        <input type="checkbox" value="remember" /> I accept the <a href="#" data-toggle="modal" data-target="#userAgreement">user agreement</a>
+
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="controls">
+                    <button type="submit" class="btn btn-primary form-control">Request Access</button>
+                </div>
+            </div>
+            <hr/>
+            <p class="clearfix">
+                <a href="@Url.Action("New", "Session")" class="pull-left"><span>← Back to login</span></a>
+            </p>
+        }
+    </div>
+</div>
+<!-- END Register Form -->
+
+       
+      <!--  <script type="text/javascript">
+            function goToForm(form)
+            {
+                $('.login-wrapper > .form-wrapper:visible').fadeOut(500, function(){
+                    $('#form-' + form + '-wrapper').fadeIn(500);
+                });
+            }
+            $(function() {
+                $('.goto-login').click(function(){
+                    goToForm('login');
+                });
+                $('.goto-forgot').click(function(){
+                    goToForm('forgot');
+                });
+                $('.goto-register').click(function(){
+                    goToForm('register');
+                });
+                $('select#register-userType').change(function() {
+                    var userTypeValue = $(this).find('option:selected').val();
+                    console.log(userTypeValue);
+                    $('.hidden-fieldset').hide();
+                    switch(userTypeValue)
+                    {
+                    case '0':
+                      $('#show-for-health-facility-user').removeClass('hide').fadeIn('fast');
+                      break;
+                    case '1':
+                      $('#show-for-organizational-user').removeClass('hide').fadeIn('fast');
+                      break;
+                    default:
+                      // do nothing
+                    }
+                });
+            });
+        </script> -->
+ 
+
+<!--@using (Html.BeginForm("Confirm", "ChangeEmail", FormMethod.Get))
+{
+    <fieldset>
+        <legend>Confirm</legend>
+        <p>
+            <label for="id">Key</label>
+            <input id="id" name="id" />
+        </p>
+        <p class="buttons"><button>Submit</button></p>
+    </fieldset>
+}
+
+@using (Html.BeginForm("Cancel", "Register", FormMethod.Get))
+{
+    <fieldset>
+        <legend>Cancel</legend>
+        <p>
+            <label for="id">Key</label>
+            <input id="id" name="id" />
+        </p>
+        <p class="buttons"><button>Submit</button></p>
+    </fieldset>
+} -->

@@ -1,0 +1,13 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml"; //Must be relative (refers to main apps layout)
+}
+<div>This is the Blog layout</div>
+@RenderBody()
+@section scripts {
+     @Scripts.Render("~/bundles/js/modules/Blog")
+}
+@section styles {
+    @Styles.Render("~/bundles/css/modules/Blog")
+}
+
+

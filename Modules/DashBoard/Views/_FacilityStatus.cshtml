@@ -1,0 +1,68 @@
+﻿<!-- BEGIN Facility Status -->
+                    <p>Use the form below to quickly access the latest status of a Facility, Region or State.</p>
+                    <form action="#" class="build-dataset">
+                        <div class="well well-sm search">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="control-label sr-only">Facility Type</label>
+                                        <div class="controls">
+                                            <select class="form-control bs-select" data-width="100%">
+                                                <option selected>Select Facility Type</option>
+                                                <option value="7">Hospital</option>
+                                                <option value="9">Nursing Home</option>
+                                                <option value="8">Medical Needs Shelter</option>
+                                                <option value="3">Community Health Centers</option>
+                                                <option value="5">EMS</option>
+                                                <option value="1">Alternate Care Site</option>
+                                                <option value="2">Blood Center</option>
+                                                <option value="4">Dialysis Center</option>
+                                                <option value="6">Evacuee Shelter</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-9">
+                                    <label for="" class="sr-only">Facility</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Start Typing a Facility, Region or State Name" name="single-facility-search">
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-primary show-single-facility-search" type="submit"><i class="glyphicon glyphicon-search"></i>Search</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <h3>Status Overview</h3>
+                    <div class="no-more-tables">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>&nbsp;</th>
+                                    <th><i class="fa fa-hospital-o"></i>Beds</th>
+                                    <th><i class="fa fa-group"></i>Staff</th>
+                                    <th><i class="fa fa-tachometer"></i>Systems</th>
+                                    <th><i class="fa fa-tint"></i>Fuel</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th class="row-header">Colbert <small><a href="facilities-status.shtml">view details &rsaquo;</a></small></th>
+                                    <td data-title="Beds">
+                                        <span class="label label-success">325 / 400</span>
+                                    </td>
+                                    <td data-title="Staff">
+                                        <span class="label label-danger">26</span>
+                                    </td>
+                                    <td data-title="Systems">
+                                        <span class="label label-danger">3</span>
+                                    </td>
+                                    <td data-title="Fuel">
+                                        <span class="label label-danger">Fuel Needed</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>

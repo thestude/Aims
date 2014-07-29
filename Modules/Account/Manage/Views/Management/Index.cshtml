@@ -1,0 +1,71 @@
+﻿@using AIMS.Modules.Account.Manage
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">Change your username</div>
+            <div class="panel-body">
+                @{
+                    Html.RenderAction("ChildIndex", "ChangeUsername");
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">Change Password</div>
+            <div class="panel-body">
+                @{
+                    Html.RenderAction("ChildIndex", "ChangePassword");
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">Change Email</div>
+            <div class="panel-body">
+                @{
+                    Html.RenderAction("ChildIndex", "ChangeEmail");
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">Change mobile phnone number</div>
+            <div class="panel-body">
+                @{
+                    Html.RenderAction("ChildIndex", "ChangeMobile");
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">Change secret question</div>
+            <div class="panel-body">
+                @{
+                    Html.RenderAction("ChildIndex", "ChangeSecretQuestion");
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">Close account</div>
+            <div class="panel-body">
+                @{
+                    Html.RenderAction("ChildIndex", "CloseAccount");
+                }
+            </div>
+        </div>
+    </div>
+</div>

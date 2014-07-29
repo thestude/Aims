@@ -1,0 +1,256 @@
+/* Responsive Modifications */
+@media (max-width: 480px) {
+    .mail-nav {
+        width: auto;
+    }
+    .system-status-row .btn-group-sm > .btn {
+    	font-size: 11px;
+    }
+    #navbar.navbar-fixed {
+    	position: relative;
+    }
+    .navbar.navbar-fixed ~ #main-container {
+    	margin-top: 0px;
+    }
+}
+
+@media (max-width: 768px) {
+	/* Force height equalized columns revert to height:auto when we go down to one column */
+	.grid-cols > [class*='col-'] { height: auto!important; }
+
+	/* Content Header - Set Facility Status - Undo pull-right when we go down to one column */
+	.content-header .set-facility-status table.pull-right {
+		float: none!important;
+		text-align: left;
+	}
+  #navbar.navbar-fixed {
+  	position: relative;
+  }
+  .navbar.navbar-fixed ~ #main-container {
+  	margin-top: 0px;
+  }
+	
+	/* Inbox controls */
+	.mail-page .dataTables_wrapper > .row {
+		float: none;
+		width: 100%;
+	}
+	.float-toolbar {
+		float: none;
+	}
+
+	label { 
+		white-space: normal;
+	}
+	.content-header .right { 
+		text-align: left;
+	}
+  .login-page .login-wrapper form#form-login, 
+  .login-page .login-wrapper form#form-forgot, 
+  .login-page .login-wrapper form#form-register {
+  	width: 340px;
+  }
+}
+
+
+
+/* Responsive Tables */
+/* http://elvery.net/demo/responsive-tables */
+@media only screen and (max-width: 800px) {
+	/* undo fixed widths */
+	.w75px, 
+	table.td-w75px td > div, 
+	table.td-w75px th, 
+	table.td-w75px th.row-header, 
+	.w125px, 
+	table.td-w125px td > div, 
+	table.td-w125px th, 
+	table.td-w125px th.row-header {
+		width: auto;
+	}
+	th.row-header {
+		font-size: 16px;
+	}
+
+	/* Force table to not be like tables anymore */
+	.no-more-tables table, 
+	.no-more-tables thead, 
+	.no-more-tables tbody, 
+	.no-more-tables th, 
+	.no-more-tables td, 
+	.no-more-tables tr { 
+		display: block; 
+	}
+ 
+	/* Hide table headers (but not display: none;, for accessibility) */
+	.no-more-tables thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+ 
+	.no-more-tables tr { border: 1px solid #ccc; }
+ 
+	.no-more-tables td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%!important; 
+		white-space: normal;
+		text-align:left;
+	}
+ 
+	.no-more-tables td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: normal;
+		text-align:left;
+		font-weight: bold;
+	}
+ 
+	/* Label the data */
+	.no-more-tables td:before { content: attr(data-title); }
+	
+	.flip-scroll-table .cf:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+	.flip-scroll-table * html .cf { zoom: 1; }
+	.flip-scroll-table *:first-child+html .cf { zoom: 1; }
+	
+	.flip-scroll-table table { width: 100%; border-collapse: collapse; border-spacing: 0; }
+ 
+	.flip-scroll-table th,
+	.flip-scroll-table td { margin: 0; vertical-align: top; }
+	.flip-scroll-table th { text-align: left; }
+	
+	.flip-scroll-table table { display: block; position: relative; width: 100%; }
+	.flip-scroll-table thead { display: block; float: left; }
+	.flip-scroll-table tbody { display: block; width: auto; position: relative; overflow-x: auto; white-space: nowrap; }
+	.flip-scroll-table thead tr { display: block; }
+	.flip-scroll-table th { display: block; text-align: right; }
+	.flip-scroll-table tbody tr { display: inline-block; vertical-align: top; }
+	.flip-scroll-table td { display: block; min-height: 1.25em; text-align: left; }
+ 
+ 
+	/* sort out borders */
+ 
+	.flip-scroll-table th { border-bottom: 0; border-left: 0; }
+	.flip-scroll-table td { border-left: 0; border-right: 0; border-bottom: 0; }
+	.flip-scroll-table tbody tr { border-left: 1px solid #babcbf; }
+	.flip-scroll-table th:last-child,
+	.flip-scroll-table td:last-child { border-bottom: 1px solid #babcbf; }
+}
+
+/* Responsive Left / Right Alignment Utility Classes */
+@media (max-width: 767px) {
+	.align-left-xs, 
+	.align-left-sm,
+	.align-left-md,  
+	.align-left-lg {
+		text-align: left;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+	.align-left-md,
+	.align-left-lg  {
+		text-align: left;
+	}
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {  
+	.align-left-lg {
+		text-align: left;
+	}
+}
+
+@media (min-width: 1200px) {
+	.align-left-lg {
+		text-align: left;
+	}
+}
+
+/*
+ * Off Canvas
+ * --------------------------------------------------
+ * Greater than 768px shows the menu by default and also flips the semantics
+ * The issue is to show menu for large screens and to hide for small
+ * Also need to do something clever to turn off the tabs for when the navigation is hidden
+ * Otherwise keyboard users cannot find the focus point
+ * (For now I will ignore that for mobile users and also not worry about
+ * screen re-sizing popping the menu out.)
+ */
+@media screen and (min-width: 768px) {
+  .row-offcanvas {
+    position: relative;
+  }
+	.row-offcanvas .content {
+    width: 75%; /* 9 columns */
+  }
+  .row-offcanvas.active .content {
+    width: 100%; /* 12 columns */
+  }
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    right:0;
+    width: 25%; /* 3 columns */
+  }
+}
+.row-offcanvas.active .sidebar-offcanvas {
+	position: absolute;
+	top: 0;
+	left:-100%
+}
+       
+@media screen and (max-width: 767px) {
+  .row-offcanvas {
+    position: relative;
+  }
+
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 50%; /* 6 columns */
+  }
+}
+
+@media (max-width: 970px) {
+    .well.search #form-date-range {
+        margin-top:6px;
+    }
+}
+
+
+
+
+
+
+
+
+
+@media (min-width: 768px) {
+  .back-to-top {
+    display: block;
+  }
+}
+
+/* Show and affix the side nav when space allows it */
+@media (min-width: 992px) {
+  /* Widen the fixed sidebar */
+  .bs-docs-sidebar.affix,
+  .bs-docs-sidebar.affix-bottom {
+    width: 213px;
+  }
+}
+@media (min-width: 1200px) {
+  /* Widen the fixed sidebar again */
+  .bs-docs-sidebar.affix-bottom,
+  .bs-docs-sidebar.affix {
+    width: 263px;
+  }
+}

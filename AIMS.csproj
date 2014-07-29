@@ -1,0 +1,1106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FB32EC17-039B-4FE4-AB76-8B6C655B5875}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AIMS</RootNamespace>
+    <AssemblyName>AIMS</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Extras.CommonServiceLocator, Version=3.2.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Autofac.Extras.CommonServiceLocator.3.2.0\lib\net40\Autofac.Extras.CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=3.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Autofac.Mvc5.3.3.0\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="BrockAllen.MembershipReboot, Version=7.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BrockAllen.MembershipReboot.7.2.0\lib\net45\BrockAllen.MembershipReboot.dll</HintPath>
+    </Reference>
+    <Reference Include="BrockAllen.MembershipReboot.WebHost, Version=7.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BrockAllen.MembershipReboot.WebHost.7.1.0\lib\net45\BrockAllen.MembershipReboot.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation, Version=5.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FluentValidation.5.3.0.0\lib\Net40\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation.Mvc, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FluentValidation.MVC5.5.1.0.0\lib\Net45\FluentValidation.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.AspNet, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Glimpse.AspNet.1.9.0\lib\net45\Glimpse.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.Core, Version=1.8.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Glimpse.1.8.5\lib\net45\Glimpse.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.Mvc5, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Glimpse.Mvc5.1.5.3\lib\net45\Glimpse.Mvc5.dll</HintPath>
+    </Reference>
+    <Reference Include="HibernatingRhinos.Profiler.Appender, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0774796e73ebf640, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NHibernateProfiler.2.0.2235.0\lib\HibernatingRhinos.Profiler.Appender.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Lucene.Net.3.0.3\lib\NET40\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Analyzers, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Analyzers.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Core, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.FastVectorHighlighter, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.FastVectorHighlighter.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Highlighter, Version=2.3.2.1, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Highlighter.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Memory, Version=1.0.0.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Queries, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Queries.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Regex, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Regex.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.SimpleFacetedSearch, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.SimpleFacetedSearch.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Snowball, Version=2.0.0.1, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Snowball.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.SpellChecker, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.SpellChecker.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.0.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.0.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.0.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.1.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.1.1\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.0.2\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.Futures.5.0.0\lib\net40\Microsoft.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Npgsql.2.1.3\lib\net45\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Mvc.Bootstrap.Datatables.MVC5, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Mvc.Bootstrap.Datatables.MVC5.1.0.4\lib\Mvc.Bootstrap.Datatables.MVC5.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Caches.SysCache">
+      <HintPath>..\packages\NHibernate.Caches.SysCache.3.3.3.4000\lib\net35\NHibernate.Caches.SysCache.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=3.1.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NLog.3.1.0.0\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=2.1.3.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Npgsql.2.1.3\lib\net45\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Postal, Version=0.9.2.0, Culture=neutral, PublicKeyToken=45719375b8b4d528, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\postal.0.9.2\lib\net40\Postal.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Security">
+      <HintPath>..\Lib\Rhino.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.93.0\lib\net45\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Services" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.1.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.1.2\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.1.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.1.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="VerbalExpressions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CSharpVerbalExpressions.0.1\lib\net40\VerbalExpressions.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivator, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebActivator.1.4\lib\NETFramework40\WebActivator.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\Vendor\" />
+    <Folder Include="Modules\AIMSActivation\Models\" />
+    <Folder Include="Modules\Contacts\Models\" />
+    <Folder Include="Modules\Documents\Models\" />
+    <Folder Include="Modules\FacilityStatus\Models\" />
+    <Folder Include="Modules\FormResponse\Models\" />
+    <Folder Include="Modules\GeneralRequest\Models\" />
+    <Folder Include="Modules\HAvBED\Models\" />
+    <Folder Include="Modules\Help\Models\" />
+    <Folder Include="Modules\Links\Models\" />
+    <Folder Include="Modules\MessageInbox\Models\" />
+    <Folder Include="Modules\PatientTransfer\Models\" />
+    <Folder Include="Modules\PeopleSearch\Models\" />
+    <Folder Include="Modules\TransportManifest\Models\" />
+    <Folder Include="Modules\Update\Models\" />
+    <Folder Include="Modules\Users\Models\" />
+    <Folder Include="Vendor\" />
+    <Folder Include="Views\FacilityStatusMapping\" />
+    <Folder Include="Views\FacilityStatus\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\MembershipRebootConfiguration.cs" />
+    <Compile Include="App_Start\NHibernateProfilerBootstrapper.cs" />
+    <Compile Include="App_Start\RegisterDatatablesModelBinder.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="GlimpseSecurityPolicy.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Config\Bundles\DefaultBundleConfig.cs" />
+    <Compile Include="Config\Bundles\ICustomBundleConfig.cs" />
+    <Compile Include="Helpers\SeedDatabase.cs" />
+    <Compile Include="Helpers\StringHelpers.cs" />
+    <Compile Include="Helpers\UserHelper.cs" />
+    <Compile Include="Infrastructure\Authorization\UserAuthorizationService.cs" />
+    <Compile Include="Infrastructure\AutoFac\FluentValidatorModule.cs" />
+    <Compile Include="Infrastructure\AutoFac\MembershipRebootModule.cs" />
+    <Compile Include="Infrastructure\AutoFac\NHibernateModule.cs" />
+    <Compile Include="Infrastructure\AutoFac\RhinoSecurityModule.cs" />
+    <Compile Include="Infrastructure\AutoFac\SiteModule.cs" />
+    <Compile Include="Infrastructure\Bundles\DefaultBundleConfig.cs" />
+    <Compile Include="Infrastructure\Bundles\ICustomBundleConfig.cs" />
+    <Compile Include="Infrastructure\Logging\ElmahTarget.cs" />
+    <Compile Include="Infrastructure\Logging\EventLogLogger.cs" />
+    <Compile Include="Infrastructure\Logging\ILogger.cs" />
+    <Compile Include="Infrastructure\Logging\Log4NetLogger.cs" />
+    <Compile Include="Infrastructure\Logging\LogUtility.cs" />
+    <Compile Include="Infrastructure\Logging\NLogLogger.cs" />
+    <Compile Include="Infrastructure\Logging\UserActivity.cs" />
+    <Compile Include="Infrastructure\ModularConventionViewEngine.cs" />
+    <Compile Include="Config\Routes\DefaultRouteConfig.cs" />
+    <Compile Include="Config\Routes\ICustomRouteConfig.cs" />
+    <Compile Include="Infrastructure\NHibernate\ConfigurationBuilder.cs" />
+    <Compile Include="Infrastructure\NHibernate\Extensions\QueryOverExtensions.cs" />
+    <Compile Include="Infrastructure\NHibernate\FluentConfigurator.cs" />
+    <Compile Include="Infrastructure\NHibernate\FluentConventions.cs" />
+    <Compile Include="Infrastructure\NHibernate\FluentDatabaseHelper.cs" />
+    <Compile Include="Infrastructure\NHibernate\LazySessionContext.cs" />
+    <Compile Include="Infrastructure\NHibernate\NHibernateSessionModule.cs" />
+    <Compile Include="Models\Bed.cs" />
+    <Compile Include="Models\BedType.cs" />
+    <Compile Include="Models\Capacity.cs" />
+    <Compile Include="Models\County.cs" />
+    <Compile Include="Models\EntityBase.cs" />
+    <Compile Include="Models\Facility.cs" />
+    <Compile Include="Models\FacilityStatus.cs" />
+    <Compile Include="Models\FacilityType.cs" />
+    <Compile Include="Models\Fuel.cs" />
+    <Compile Include="Models\FuelType.cs" />
+    <Compile Include="Models\AimsUser.cs" />
+    <Compile Include="Models\Mapping\AimsUserMapping.cs" />
+    <Compile Include="Models\Mapping\BedMapping.cs" />
+    <Compile Include="Models\Mapping\BedTypeMapping.cs" />
+    <Compile Include="Models\Mapping\CapacityMapping.cs" />
+    <Compile Include="Models\Mapping\CountyMapping.cs" />
+    <Compile Include="Models\Mapping\EntityBaseMapping.cs" />
+    <Compile Include="Models\Mapping\FacilityMapping.cs" />
+    <Compile Include="Models\Mapping\FacilityStatusMapping.cs" />
+    <Compile Include="Models\Mapping\FacilityTypeMapping.cs" />
+    <Compile Include="Models\Mapping\FuelMapping.cs" />
+    <Compile Include="Models\Mapping\FuelTypeMapping.cs" />
+    <Compile Include="Models\Mapping\OrganizationCapabilitiesMapping.cs" />
+    <Compile Include="Models\Mapping\OrganizationMapping.cs" />
+    <Compile Include="Models\Mapping\OrganizationTypeMapping.cs" />
+    <Compile Include="Models\Mapping\StaffMapping.cs" />
+    <Compile Include="Models\Mapping\StaffTypeMapping.cs" />
+    <Compile Include="Models\Mapping\StateMapping.cs" />
+    <Compile Include="Models\Mapping\SystemsMapping.cs" />
+    <Compile Include="Models\Mapping\SystemsTypeMapping.cs" />
+    <Compile Include="Models\OrganizationCapabilities.cs" />
+    <Compile Include="Models\Organization.cs" />
+    <Compile Include="Models\OrganizationType.cs" />
+    <Compile Include="Models\Staff.cs" />
+    <Compile Include="Models\StaffType.cs" />
+    <Compile Include="Models\State.cs" />
+    <Compile Include="Models\Systems.cs" />
+    <Compile Include="Models\SystemsType.cs" />
+    <Compile Include="Modules\Account\Config\AuthenticationBundleConfig.cs" />
+    <Compile Include="Modules\Account\Manage\ChangeEmailController.cs" />
+    <Compile Include="Modules\Account\Manage\ChangeMobileController.cs" />
+    <Compile Include="Modules\Account\Manage\ChangePasswordController.cs" />
+    <Compile Include="Modules\Account\Manage\ChangeSecretQuestionController.cs" />
+    <Compile Include="Modules\Account\Manage\ChangeUsernameController.cs" />
+    <Compile Include="Modules\Account\Manage\CloseAccountController.cs" />
+    <Compile Include="Modules\Account\Manage\ManagementController.cs" />
+    <Compile Include="Modules\Account\Manage\PasswordResetController.cs" />
+    <Compile Include="Modules\Account\Manage\SendUsernameReminderController.cs" />
+    <Compile Include="Modules\Account\Models\ChangeEmailFromKeyInputModel.cs" />
+    <Compile Include="Modules\Account\Models\ChangeEmailRequestInputModel.cs" />
+    <Compile Include="Modules\Account\Models\ChangeMobileFromCodeInputModel.cs" />
+    <Compile Include="Modules\Account\Models\ChangeMobileRequestInputModel.cs" />
+    <Compile Include="Modules\Account\Models\ChangePasswordFromResetKeyInputModel.cs" />
+    <Compile Include="Modules\Account\Models\ChangePasswordInputModel.cs" />
+    <Compile Include="Modules\Account\Models\ChangeSecretQuestionInputModel.cs" />
+    <Compile Include="Modules\Account\Models\ChangeUsernameInputModel.cs" />
+    <Compile Include="Modules\Account\Models\LoginInputModel.cs" />
+    <Compile Include="Modules\Account\Models\PasswordResetInputModel.cs" />
+    <Compile Include="Modules\Account\Models\RegisterInputModel.cs" />
+    <Compile Include="Modules\Account\Models\SendUsernameReminderInputModel.cs" />
+    <Compile Include="Modules\Account\Models\TwoFactorAuthInputModel.cs" />
+    <Compile Include="Modules\Account\Registration\RegistrationController.cs" />
+    <Compile Include="Modules\Account\Session\SessionController.cs" />
+    <Compile Include="Modules\FacilitySetup\FacilitySetupController.cs" />
+    <Compile Include="Modules\FacilitySetup\Config\FacilitySetupBundleConfig.cs" />
+    <Compile Include="Modules\FacilitySetup\Models\FacilitySetUp.cs" />
+    <Compile Include="Modules\FacilitySetup\Services\FacilitySetupService.cs" />
+    <Compile Include="Modules\AIMSActivation\AimsActivationController.cs" />
+    <Compile Include="Modules\AIMSActivation\Config\AimsActivationBundleConfig.cs" />
+    <Compile Include="Modules\FormResponse\Config\FormResponseBundleConfig.cs" />
+    <Compile Include="Modules\FormResponse\FormResponseController.cs" />
+    <Compile Include="Modules\TimeLine\Hubs\TimelineHub.cs" />
+    <Compile Include="Modules\Users\UsersController.cs" />
+    <Compile Include="Modules\Users\Config\UsersBundleConfig.cs" />
+    <Compile Include="Modules\Contacts\ContactsController.cs" />
+    <Compile Include="Modules\Contacts\Config\ContactsBundleConfig.cs" />
+    <Compile Include="Modules\Authorization\AuthorizationController.cs" />
+    <Compile Include="Modules\Authorization\Config\AppleBundleConfig.cs" />
+    <Compile Include="Modules\Apple\Config\AppleBundleConfig.cs" />
+    <Compile Include="Modules\Apple\AppleController.cs" />
+    <Compile Include="Modules\Blog\Config\BlogBundleConfig.cs" />
+    <Compile Include="Modules\Blog\BlogController.cs" />
+    <Compile Include="Modules\Help\HelpController.cs" />
+    <Compile Include="Modules\Help\Config\HelpBundleConfig.cs" />
+    <Compile Include="Modules\Links\LinksController.cs" />
+    <Compile Include="Modules\Links\Config\LinksBundleConfig.cs" />
+    <Compile Include="Modules\Documents\DocumentsController.cs" />
+    <Compile Include="Modules\Documents\Config\DocumentsBundleConfig.cs" />
+    <Compile Include="Modules\GeneralRequest\GeneralRequestController.cs" />
+    <Compile Include="Modules\GeneralRequest\Config\GeneralRequestBundleConfig.cs" />
+    <Compile Include="Modules\PatientTransfer\PatientTransferController.cs" />
+    <Compile Include="Modules\PatientTransfer\Config\PatientTransferBundleConfig.cs" />
+    <Compile Include="Modules\MessageInbox\MessageInboxController.cs" />
+    <Compile Include="Modules\MessageInbox\Config\MessageInboxBundleConfig.cs" />
+    <Compile Include="Modules\HAvBED\HAvBEDController.cs" />
+    <Compile Include="Modules\HAvBED\Config\HAvBEDBundleConfig.cs" />
+    <Compile Include="Modules\Update\UpdateController.cs" />
+    <Compile Include="Modules\Update\Config\UpdateBundleConfig.cs" />
+    <Compile Include="Modules\TransportManifest\TransportManifestController.cs" />
+    <Compile Include="Modules\TransportManifest\Config\TransportManifestBundleConfig.cs" />
+    <Compile Include="Modules\PeopleSearch\PeopleSearchController.cs" />
+    <Compile Include="Modules\PeopleSearch\Config\PeopleSearchBundleConfig.cs" />
+    <Compile Include="Modules\FacilityStatus\FacilityStatus.cs" />
+    <Compile Include="Modules\FacilityStatus\Config\FacilityStatusBundleConfig.cs" />
+    <Compile Include="Modules\TimeLine\TimeLineController.cs" />
+    <Compile Include="Modules\TimeLine\Config\TimeLineBundleConfig.cs" />
+    <Compile Include="Modules\DashBoard\DashBoardController.cs" />
+    <Compile Include="Modules\DashBoard\Config\DashBoardBundleConfig.cs" />
+    <Compile Include="Notifications\Debugger\DebuggerEventHandler.cs" />
+    <Compile Include="Notifications\Email\EmailAccountEventsHandler.cs" />
+    <Compile Include="Notifications\Email\SmtpMessageDelivery.cs" />
+    <Compile Include="Notifications\Sms\TwilloSmsEventHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Search\LuceneFullTextSearch.cs" />
+    <Compile Include="Search\FullTextIndexedAttribute.cs" />
+    <Compile Include="Search\LuceneIndexEventListener.cs" />
+    <Compile Include="Modules\TimeLine\Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-chosen.css" />
+    <Content Include="Content\bootstrap-datepicker.css" />
+    <Content Include="Content\bootstrap-datepicker3.css" />
+    <Content Include="Content\bootstrap-select.css" />
+    <Content Include="Content\bootstrap-select.min.css" />
+    <Content Include="Content\bootstrap-switch\bootstrap2\bootstrap-switch.css" />
+    <Content Include="Content\bootstrap-switch\bootstrap2\bootstrap-switch.min.css" />
+    <Content Include="Content\bootstrap-switch\bootstrap3\bootstrap-switch.css" />
+    <Content Include="Content\bootstrap-switch\bootstrap3\bootstrap-switch.min.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap-wysihtml5.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.datatables.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\chosen-sprite%402x.png" />
+    <Content Include="Content\chosen-sprite.png" />
+    <Content Include="Content\daterangepicker-bs3.css" />
+    <Content Include="Content\Flatty\flaty-responsive.css" />
+    <Content Include="Content\Flatty\flaty.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\images\aims-favicon.png" />
+    <Content Include="Content\images\aims-logo-150w-reverse.png" />
+    <Content Include="Content\images\aims-logo-150w.png" />
+    <Content Include="Content\images\aims-logo-175w-reverse.png" />
+    <Content Include="Content\images\aims-logo-175w.png" />
+    <Content Include="Content\images\aims-logo-200w-reverse.png" />
+    <Content Include="Content\images\aims-logo-200w.png" />
+    <Content Include="Content\images\aims-logo-300w.png" />
+    <Content Include="Content\images\aims-logo-400w-reverse.png" />
+    <Content Include="Content\images\aims-logo-400w.png" />
+    <Content Include="Content\images\chc-pointer.png" />
+    <Content Include="Content\images\ems-pointer.png" />
+    <Content Include="Content\images\file-type-icons\doc.png" />
+    <Content Include="Content\images\file-type-icons\pdf.png" />
+    <Content Include="Content\images\file-type-icons\ppt.png" />
+    <Content Include="Content\images\file-type-icons\xls.png" />
+    <Content Include="Content\images\hospital-pointer-blue.png" />
+    <Content Include="Content\images\hospital-pointer-green.png" />
+    <Content Include="Content\images\hospital-pointer-red.png" />
+    <Content Include="Content\images\hospital-pointer-yellow.png" />
+    <Content Include="Content\images\hospital-pointer.png" />
+    <Content Include="Content\images\logo-ideas.png" />
+    <Content Include="Content\images\m1.png" />
+    <Content Include="Content\images\m2.png" />
+    <Content Include="Content\images\m3.png" />
+    <Content Include="Content\images\m4.png" />
+    <Content Include="Content\images\m5.png" />
+    <Content Include="Content\images\nursing-pointer.png" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Site\chosen-bootstrap-3.css" />
+    <Content Include="Content\Site\docs.css" />
+    <Content Include="Content\Site\docs.min.css" />
+    <Content Include="Content\Site\front-responsive.css" />
+    <Content Include="Content\Site\front.css" />
+    <Content Include="Content\Site\github.css" />
+    <Content Include="Content\Site\gutterless-grid.css" />
+    <Content Include="Content\Site\jeff.css" />
+    <Content Include="Content\Site\table-header-rotate.css" />
+    <Content Include="Content\Site\wysiwyg-color.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Modules\Account\Manage\Views\_ViewStart.cshtml" />
+    <Content Include="Modules\Account\Scripts\example-index.js" />
+    <Content Include="Modules\Account\Scripts\example.js" />
+    <Content Include="Modules\Account\Styles\example-index.css" />
+    <Content Include="Modules\Account\Styles\example.css" />
+    <Content Include="Modules\AIMSActivation\Scripts\example-index.js" />
+    <Content Include="Modules\AIMSActivation\Scripts\example.js" />
+    <Content Include="Modules\AIMSActivation\Styles\example-index.css" />
+    <Content Include="Modules\AIMSActivation\Styles\example.css" />
+    <Content Include="Modules\FormResponse\Scripts\example-index.js" />
+    <Content Include="Modules\FormResponse\Scripts\example.js" />
+    <Content Include="Modules\FormResponse\Styles\example-index.css" />
+    <Content Include="Modules\FormResponse\Styles\example.css" />
+    <Content Include="Scripts\Timeline.js" />
+    <Content Include="Modules\Users\Scripts\example-index.js" />
+    <Content Include="Modules\Users\Scripts\example.js" />
+    <Content Include="Modules\Users\Styles\example-index.css" />
+    <Content Include="Modules\Users\Styles\example.css" />
+    <Content Include="Modules\Contacts\Scripts\example-index.js" />
+    <Content Include="Modules\Contacts\Scripts\example.js" />
+    <Content Include="Modules\Contacts\Styles\example-index.css" />
+    <Content Include="Modules\Contacts\Styles\example.css" />
+    <Content Include="Modules\Authorization\Scripts\example-index.js" />
+    <Content Include="Modules\Authorization\Scripts\example.js" />
+    <Content Include="Modules\Authorization\Styles\example-index.css" />
+    <Content Include="Modules\Authorization\Styles\example.css" />
+    <Content Include="Modules\Apple\Models\README.md" />
+    <Content Include="Modules\Apple\Views\Edit.cshtml" />
+    <Content Include="Modules\Apple\Views\Index.cshtml" />
+    <Content Include="Modules\Apple\Views\New.cshtml" />
+    <Content Include="Modules\Apple\Views\_SituationLayout.cshtml" />
+    <Content Include="Modules\Apple\Views\_Form.cshtml" />
+    <Content Include="Modules\Apple\Views\_ViewStart.cshtml" />
+    <Content Include="Modules\Blog\Models\README.md" />
+    <Content Include="Modules\Blog\README.md" />
+    <Content Include="Modules\Blog\Views\Edit.cshtml" />
+    <Content Include="Modules\Blog\Views\Index.cshtml" />
+    <Content Include="Modules\Blog\Views\New.cshtml" />
+    <Content Include="Modules\Blog\Views\README.md" />
+    <Content Include="Modules\Blog\Views\_BlogLayout.cshtml" />
+    <Content Include="Modules\Blog\Views\_Form.cshtml" />
+    <Content Include="Modules\Blog\Views\_ViewStart.cshtml" />
+    <Content Include="Modules\Help\Scripts\example-index.js" />
+    <Content Include="Modules\Help\Scripts\example.js" />
+    <Content Include="Modules\Help\Styles\example-index.css" />
+    <Content Include="Modules\Help\Styles\example.css" />
+    <Content Include="Modules\Links\Scripts\example-index.js" />
+    <Content Include="Modules\Links\Scripts\example.js" />
+    <Content Include="Modules\Links\Styles\example-index.css" />
+    <Content Include="Modules\Links\Styles\example.css" />
+    <Content Include="Modules\Documents\Scripts\example-index.js" />
+    <Content Include="Modules\Documents\Scripts\example.js" />
+    <Content Include="Modules\Documents\Styles\example-index.css" />
+    <Content Include="Modules\Documents\Styles\example.css" />
+    <Content Include="Modules\GeneralRequest\Scripts\example-index.js" />
+    <Content Include="Modules\GeneralRequest\Scripts\example.js" />
+    <Content Include="Modules\GeneralRequest\Styles\example-index.css" />
+    <Content Include="Modules\GeneralRequest\Styles\example.css" />
+    <Content Include="Modules\PatientTransfer\Scripts\example-index.js" />
+    <Content Include="Modules\PatientTransfer\Scripts\example.js" />
+    <Content Include="Modules\PatientTransfer\Styles\example-index.css" />
+    <Content Include="Modules\PatientTransfer\Styles\example.css" />
+    <Content Include="Modules\MessageInbox\Scripts\example-index.js" />
+    <Content Include="Modules\MessageInbox\Scripts\example.js" />
+    <Content Include="Modules\MessageInbox\Styles\example-index.css" />
+    <Content Include="Modules\MessageInbox\Styles\example.css" />
+    <Content Include="Modules\HAvBED\Scripts\example-index.js" />
+    <Content Include="Modules\HAvBED\Scripts\example.js" />
+    <Content Include="Modules\HAvBED\Styles\example-index.css" />
+    <Content Include="Modules\HAvBED\Styles\example.css" />
+    <Content Include="Modules\Update\Scripts\example-index.js" />
+    <Content Include="Modules\Update\Scripts\example.js" />
+    <Content Include="Modules\Update\Styles\example-index.css" />
+    <Content Include="Modules\Update\Styles\example.css" />
+    <Content Include="Modules\TransportManifest\Scripts\example-index.js" />
+    <Content Include="Modules\TransportManifest\Scripts\example.js" />
+    <Content Include="Modules\TransportManifest\Styles\example-index.css" />
+    <Content Include="Modules\TransportManifest\Styles\example.css" />
+    <Content Include="Modules\PeopleSearch\Scripts\example-index.js" />
+    <Content Include="Modules\PeopleSearch\Scripts\example.js" />
+    <Content Include="Modules\PeopleSearch\Styles\example-index.css" />
+    <Content Include="Modules\PeopleSearch\Styles\example.css" />
+    <Content Include="Modules\FacilityStatus\Scripts\example-index.js" />
+    <Content Include="Modules\FacilityStatus\Scripts\example.js" />
+    <Content Include="Modules\FacilityStatus\Styles\example-index.css" />
+    <Content Include="Modules\FacilityStatus\Styles\example.css" />
+    <Content Include="Modules\TimeLine\Scripts\example-index.js" />
+    <Content Include="Modules\TimeLine\Scripts\example.js" />
+    <Content Include="Modules\TimeLine\Styles\example-index.css" />
+    <Content Include="Modules\TimeLine\Styles\example.css" />
+    <Content Include="Modules\DashBoard\Scripts\example-index.js" />
+    <Content Include="Modules\DashBoard\Scripts\example.js" />
+    <Content Include="Modules\DashBoard\Scripts\mapping.js" />
+    <Content Include="Modules\DashBoard\Styles\example-index.css" />
+    <Content Include="Modules\DashBoard\Styles\example.css" />
+    <Content Include="Modules\Web.config" />
+    <Content Include="Modules\Apple\Scripts\example-index.js" />
+    <Content Include="Modules\Apple\Scripts\example.js" />
+    <Content Include="Modules\Apple\Styles\example-index.css" />
+    <Content Include="Modules\Apple\Styles\example.css" />
+    <Content Include="Modules\Blog\Scripts\example-index.js" />
+    <Content Include="Modules\Blog\Scripts\example.js" />
+    <Content Include="Modules\Blog\Styles\example-index.css" />
+    <Content Include="Modules\Blog\Styles\example.css" />
+    <Content Include="Modules\Authorization\Models\README.md" />
+    <Content Include="Modules\Authorization\README.md" />
+    <Content Include="Modules\Authorization\Views\_AuthorizationLayout.cshtml" />
+    <Content Include="Modules\Authorization\Views\_Form.cshtml" />
+    <Content Include="Modules\Authorization\Views\_ViewStart.cshtml" />
+    <Content Include="Modules\Authorization\Views\Edit.cshtml" />
+    <Content Include="Modules\Authorization\Views\Index.cshtml" />
+    <Content Include="Modules\Authorization\Views\New.cshtml" />
+    <Content Include="Modules\Authorization\Views\README.md" />
+    <Content Include="Modules\Account\Manage\Views\ChangeEmail\ChangeRequestSuccess.cshtml" />
+    <Content Include="Modules\Account\Manage\Views\ChangeEmail\Confirm.cshtml" />
+    <Content Include="Modules\Account\Manage\Views\ChangeEmail\ConfirmChangeEmail.cshtml" />
+    <Content Include="Modules\Account\Manage\Views\ChangeEmail\Index.cshtml" />
+    <Content Include="Modules\Account\Manage\Views\ChangeEmail\Success.cshtml" />
+    <Content Include="Modules\Account\Manage\Views\ChangeMobile\ChangeRequestSuccess.cshtml" />
+    <Content Include="Modules\Account\Manage\Views\ChangeMobile\Confirm.cshtml" />
+    <Content Include="Modules\Account\Manage\Views\ChangeMobile\Index.cshtml" />
+    <Content Include="Modules\Account\Manage\Views\ChangeMobile\Success.cshtml" />
+    <Content Include="Modules\Account\Manage\Views\ChangePassword\Index.cshtml" />
+    <Content Include="Modules\Account\Manage\Views\ChangePassword\SendPasswordReset.cshtml" />
+    <Content Include="Modules\Account\Manage\Views\ChangePassword\Sent.cshtml" />
+    <Content Include="Modules\Account\Manage\Views\ChangePassword\Success.cshtml" />
+    <Content Include="Modules\Account\Manage\Views\ChangeSecretQuestion\Add.cshtml" />
+    <Content Include="Modules\Account\Manage\Views\ChangeSecretQuestion\Index.cshtml" />
+    <Content Include="Modules\Account\Manage\Views\ChangeUsername\Index.cshtml" />
+    <Content Include="Modules\Account\Manage\Views\ChangeUsername\Success.cshtml" />
+    <Content Include="Modules\Account\Manage\Views\CloseAccount\Index.cshtml" />
+    <Content Include="Modules\Account\Manage\Views\Management\Confirm.cshtml" />
+    <Content Include="Modules\Account\Manage\Views\Management\Index.cshtml" />
+    <Content Include="Modules\Account\Manage\Views\PasswordReset\Confirm.cshtml" />
+    <Content Include="Modules\Account\Manage\Views\PasswordReset\Index.cshtml" />
+    <Content Include="Modules\Account\Manage\Views\PasswordReset\ResetSuccess.cshtml" />
+    <Content Include="Modules\Account\Manage\Views\PasswordReset\ResetWithQuestions.cshtml" />
+    <Content Include="Modules\Account\Manage\Views\PasswordReset\Success.cshtml" />
+    <Content Include="Modules\Account\Manage\Views\SendUsernameReminder\Index.cshtml" />
+    <Content Include="Modules\Account\Manage\Views\SendUsernameReminder\Success.cshtml" />
+    <Content Include="Modules\Account\Models\README.md" />
+    <Content Include="Modules\Account\Registration\Views\Registration\Cancel.cshtml" />
+    <Content Include="Modules\Account\Registration\Views\Registration\Closed.cshtml" />
+    <Content Include="Modules\Account\Registration\Views\Registration\Error.cshtml" />
+    <Content Include="Modules\Account\Registration\Views\Registration\New.cshtml" />
+    <Content Include="Modules\Account\Registration\Views\Registration\Success.cshtml" />
+    <Content Include="Modules\Account\Registration\Views\Registration\Verify.cshtml" />
+    <Content Include="Modules\Account\Registration\Views\_ViewStart.cshtml" />
+    <Content Include="Modules\Account\Session\Views\README.md" />
+    <Content Include="Modules\Account\Session\Views\Session\CertificateLogin.cshtml" />
+    <Content Include="Modules\Account\Session\Views\Session\Destroy.cshtml" />
+    <Content Include="Modules\Account\Session\Views\Session\New.cshtml" />
+    <Content Include="Modules\Account\Session\Views\Session\TwoFactorAuthCodeLogin.cshtml" />
+    <Content Include="Modules\Account\Session\Views\_ViewStart.cshtml" />
+    <Content Include="Modules\Account\Views\_AccountLayout.cshtml" />
+    <Content Include="Modules\Account\Views\_ViewStart.cshtml" />
+    <Content Include="Modules\DashBoard\Models\README.md" />
+    <Content Include="Modules\DashBoard\Views\_DashBoardLayout.cshtml" />
+    <Content Include="Modules\DashBoard\Views\_Form.cshtml" />
+    <Content Include="Modules\DashBoard\Views\_ViewStart.cshtml" />
+    <Content Include="Modules\DashBoard\Views\Edit.cshtml" />
+    <Content Include="Modules\DashBoard\Views\Index.cshtml" />
+    <Content Include="Modules\DashBoard\Views\New.cshtml" />
+    <Content Include="Modules\DashBoard\Views\_Timeline.cshtml" />
+    <Content Include="Modules\DashBoard\Views\_FacilityStatus.cshtml" />
+    <Content Include="Modules\DashBoard\Views\_Inbox.cshtml" />
+    <Content Include="Modules\DashBoard\Views\_PatientTransfer.cshtml" />
+    <Content Include="Modules\DashBoard\Views\_Messages.cshtml" />
+    <Content Include="Modules\TimeLine\Models\README.md" />
+    <Content Include="Modules\TimeLine\Views\_Form.cshtml" />
+    <Content Include="Modules\TimeLine\Views\_SituationLayout.cshtml" />
+    <Content Include="Modules\TimeLine\Views\_ViewStart.cshtml" />
+    <Content Include="Modules\TimeLine\Views\Edit.cshtml" />
+    <Content Include="Modules\TimeLine\Views\Index.cshtml" />
+    <Content Include="Modules\TimeLine\Views\New.cshtml" />
+    <Content Include="Modules\FacilityStatus\Views\_Form.cshtml" />
+    <Content Include="Modules\FacilityStatus\Views\_FacilityStatusLayout.cshtml" />
+    <Content Include="Modules\FacilityStatus\Views\_ViewStart.cshtml" />
+    <Content Include="Modules\FacilityStatus\Views\Edit.cshtml" />
+    <Content Include="Modules\FacilityStatus\Views\Index.cshtml" />
+    <Content Include="Modules\FacilityStatus\Views\New.cshtml" />
+    <Content Include="Modules\PeopleSearch\Views\_Form.cshtml" />
+    <Content Include="Modules\PeopleSearch\Views\_PeopleSearchLayout.cshtml" />
+    <Content Include="Modules\PeopleSearch\Views\_ViewStart.cshtml" />
+    <Content Include="Modules\PeopleSearch\Views\Edit.cshtml" />
+    <Content Include="Modules\PeopleSearch\Views\Index.cshtml" />
+    <Content Include="Modules\PeopleSearch\Views\New.cshtml" />
+    <Content Include="Modules\PeopleSearch\Views\_NewPerson.cshtml" />
+    <Content Include="Modules\PeopleSearch\Views\_MovePeople.cshtml" />
+    <Content Include="Modules\PeopleSearch\Views\_DischargePeople.cshtml" />
+    <Content Include="Modules\TransportManifest\Views\_Form.cshtml" />
+    <Content Include="Modules\TransportManifest\Views\_TransportManifestLayout.cshtml" />
+    <Content Include="Modules\TransportManifest\Views\_ViewStart.cshtml" />
+    <Content Include="Modules\TransportManifest\Views\Edit.cshtml" />
+    <Content Include="Modules\TransportManifest\Views\Index.cshtml" />
+    <Content Include="Modules\TransportManifest\Views\New.cshtml" />
+    <Content Include="Modules\TransportManifest\Views\TransportManifestDetail.cshtml" />
+    <Content Include="Modules\Update\Views\_Form.cshtml" />
+    <Content Include="Modules\Update\Views\_UpdateLayout.cshtml" />
+    <Content Include="Modules\Update\Views\_ViewStart.cshtml" />
+    <Content Include="Modules\Update\Views\Edit.cshtml" />
+    <Content Include="Modules\Update\Views\Index.cshtml" />
+    <Content Include="Modules\Update\Views\New.cshtml" />
+    <Content Include="Modules\HAvBED\Views\_Form.cshtml" />
+    <Content Include="Modules\HAvBED\Views\_HAvBEDLayout.cshtml" />
+    <Content Include="Modules\HAvBED\Views\_ViewStart.cshtml" />
+    <Content Include="Modules\HAvBED\Views\Edit.cshtml" />
+    <Content Include="Modules\HAvBED\Views\Index.cshtml" />
+    <Content Include="Modules\HAvBED\Views\New.cshtml" />
+    <Content Include="Modules\HAvBED\Views\_HavbedFacility.cshtml" />
+    <Content Include="Modules\HAvBED\Views\_HavbedRegion.cshtml" />
+    <Content Include="Modules\HAvBED\Views\_HavbedState.cshtml" />
+    <Content Include="Modules\MessageInbox\Views\_Form.cshtml" />
+    <Content Include="Modules\MessageInbox\Views\_MessageInboxLayout.cshtml" />
+    <Content Include="Modules\MessageInbox\Views\_ViewStart.cshtml" />
+    <Content Include="Modules\MessageInbox\Views\Edit.cshtml" />
+    <Content Include="Modules\MessageInbox\Views\Index.cshtml" />
+    <Content Include="Modules\MessageInbox\Views\New.cshtml" />
+    <Content Include="Modules\MessageInbox\Views\_InboxList.cshtml" />
+    <Content Include="Modules\MessageInbox\Views\_NewMessage.cshtml" />
+    <Content Include="Modules\PatientTransfer\Views\_Form.cshtml" />
+    <Content Include="Modules\PatientTransfer\Views\_PatientTransferLayout.cshtml" />
+    <Content Include="Modules\PatientTransfer\Views\_ViewStart.cshtml" />
+    <Content Include="Modules\PatientTransfer\Views\Edit.cshtml" />
+    <Content Include="Modules\PatientTransfer\Views\Index.cshtml" />
+    <Content Include="Modules\PatientTransfer\Views\New.cshtml" />
+    <Content Include="Modules\PatientTransfer\Views\_TransferList.cshtml" />
+    <Content Include="Modules\PatientTransfer\Views\_NewTransfer.cshtml" />
+    <Content Include="Modules\GeneralRequest\Views\_Form.cshtml" />
+    <Content Include="Modules\GeneralRequest\Views\_GeneralRequestLayout.cshtml" />
+    <Content Include="Modules\GeneralRequest\Views\_ViewStart.cshtml" />
+    <Content Include="Modules\GeneralRequest\Views\Edit.cshtml" />
+    <Content Include="Modules\GeneralRequest\Views\Index.cshtml" />
+    <Content Include="Modules\GeneralRequest\Views\New.cshtml" />
+    <Content Include="Modules\GeneralRequest\Views\_RequestList.cshtml" />
+    <Content Include="Modules\GeneralRequest\Views\_NewRequest.cshtml" />
+    <Content Include="Modules\Documents\Views\_Form.cshtml" />
+    <Content Include="Modules\Documents\Views\_DocumentsLayout.cshtml" />
+    <Content Include="Modules\Documents\Views\_ViewStart.cshtml" />
+    <Content Include="Modules\Documents\Views\Edit.cshtml" />
+    <Content Include="Modules\Documents\Views\Index.cshtml" />
+    <Content Include="Modules\Documents\Views\New.cshtml" />
+    <Content Include="Modules\Documents\Views\_DownloadCard.cshtml" />
+    <Content Include="Modules\Documents\Views\_NewDocument.cshtml" />
+    <Content Include="Modules\Links\Views\_Form.cshtml" />
+    <Content Include="Modules\Links\Views\_LinksLayout.cshtml" />
+    <Content Include="Modules\Links\Views\_ViewStart.cshtml" />
+    <Content Include="Modules\Links\Views\Edit.cshtml" />
+    <Content Include="Modules\Links\Views\Index.cshtml" />
+    <Content Include="Modules\Links\Views\New.cshtml" />
+    <Content Include="Modules\Help\Views\_Form.cshtml" />
+    <Content Include="Modules\Help\Views\_HelpLayout.cshtml" />
+    <Content Include="Modules\Help\Views\_ViewStart.cshtml" />
+    <Content Include="Modules\Help\Views\Edit.cshtml" />
+    <Content Include="Modules\Help\Views\Index.cshtml" />
+    <Content Include="Modules\Help\Views\New.cshtml" />
+    <Content Include="Modules\Contacts\Views\_ContactsLayout.cshtml" />
+    <Content Include="Modules\Contacts\Views\_Form.cshtml" />
+    <Content Include="Modules\Contacts\Views\_ViewStart.cshtml" />
+    <Content Include="Modules\Contacts\Views\Edit.cshtml" />
+    <Content Include="Modules\Contacts\Views\Index.cshtml" />
+    <Content Include="Modules\Contacts\Views\New.cshtml" />
+    <Content Include="Modules\Contacts\Views\_ContactCard.cshtml" />
+    <Content Include="Modules\DashBoard\Views\_GeneralRequest.cshtml" />
+    <Content Include="Modules\DashBoard\Views\_NewMessage.cshtml" />
+    <Content Include="Modules\DashBoard\Views\_NewTransfer.cshtml" />
+    <Content Include="Modules\DashBoard\Views\_NewRequest.cshtml" />
+    <Content Include="Modules\FacilityStatus\Views\_IBA.cshtml" />
+    <Content Include="Modules\TimeLine\Views\_NewTimelineStatus.cshtml" />
+    <Content Include="Modules\TimeLine\Views\_TimelineList.cshtml" />
+    <Content Include="Modules\Update\Views\_NewGeneralRequest.cshtml" />
+    <Content Include="Modules\Users\Views\_UsersLayout.cshtml" />
+    <Content Include="Modules\Users\Views\_Form.cshtml" />
+    <Content Include="Modules\Users\Views\_ViewStart.cshtml" />
+    <Content Include="Modules\Users\Views\Edit.cshtml" />
+    <Content Include="Modules\Users\Views\Index.cshtml" />
+    <Content Include="Modules\Users\Views\New.cshtml" />
+    <Content Include="Modules\Users\Views\_NewUsers.cshtml" />
+    <Content Include="Modules\FormResponse\Views\Edit.cshtml" />
+    <Content Include="Modules\FormResponse\Views\FormCompliance.cshtml" />
+    <Content Include="Modules\FormResponse\Views\FormHeat.cshtml" />
+    <Content Include="Modules\FormResponse\Views\Index.cshtml" />
+    <Content Include="Modules\FormResponse\Views\New.cshtml" />
+    <Content Include="Modules\FormResponse\Views\_Form.cshtml" />
+    <Content Include="Modules\FormResponse\Views\_FormResponseLayout.cshtml" />
+    <Content Include="Modules\FormResponse\Views\_ViewStart.cshtml" />
+    <Content Include="Modules\AIMSActivation\Views\_Form.cshtml" />
+    <Content Include="Modules\AIMSActivation\Views\_AimsActivationLayout.cshtml" />
+    <Content Include="Modules\AIMSActivation\Views\_ViewStart.cshtml" />
+    <Content Include="Modules\AIMSActivation\Views\Edit.cshtml" />
+    <Content Include="Modules\AIMSActivation\Views\Index.cshtml" />
+    <Content Include="Modules\AIMSActivation\Views\New.cshtml" />
+    <Content Include="Scripts\jquery.signalR-2.1.1.js" />
+    <Content Include="Scripts\jquery.signalR-2.1.1.min.js" />
+    <Content Include="Views\Shared\_UserAgreement.cshtml" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap-select.js" />
+    <Content Include="Scripts\bootstrap-select.min.js" />
+    <Content Include="Scripts\bootstrap-switch.js" />
+    <Content Include="Scripts\bootstrap-switch.min.js" />
+    <Content Include="Scripts\bootstrap-wysihtml5.js" />
+    <Content Include="Scripts\bootstrap.datatables.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\chosen.jquery.js" />
+    <Content Include="Scripts\chosen.jquery.min.js" />
+    <Content Include="Scripts\daterangepicker.js" />
+    <Content Include="Scripts\Flaty\flaty-demo-codes.js" />
+    <Content Include="Scripts\Flaty\flaty.js" />
+    <Content Include="Scripts\flot\excanvas.js" />
+    <Content Include="Scripts\flot\excanvas.min.js" />
+    <Content Include="Scripts\flot\jquery.colorhelpers.js" />
+    <Content Include="Scripts\flot\jquery.colorhelpers.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.canvas.js" />
+    <Content Include="Scripts\flot\jquery.flot.canvas.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.categories.js" />
+    <Content Include="Scripts\flot\jquery.flot.categories.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.crosshair.js" />
+    <Content Include="Scripts\flot\jquery.flot.crosshair.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.errorbars.js" />
+    <Content Include="Scripts\flot\jquery.flot.errorbars.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.fillbetween.js" />
+    <Content Include="Scripts\flot\jquery.flot.fillbetween.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.image.js" />
+    <Content Include="Scripts\flot\jquery.flot.image.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.js" />
+    <Content Include="Scripts\flot\jquery.flot.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.navigate.js" />
+    <Content Include="Scripts\flot\jquery.flot.navigate.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.pie.js" />
+    <Content Include="Scripts\flot\jquery.flot.pie.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.resize.js" />
+    <Content Include="Scripts\flot\jquery.flot.resize.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.selection.js" />
+    <Content Include="Scripts\flot\jquery.flot.selection.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.stack.js" />
+    <Content Include="Scripts\flot\jquery.flot.stack.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.symbol.js" />
+    <Content Include="Scripts\flot\jquery.flot.symbol.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.threshold.js" />
+    <Content Include="Scripts\flot\jquery.flot.threshold.min.js" />
+    <Content Include="Scripts\flot\jquery.flot.time.js" />
+    <Content Include="Scripts\flot\jquery.flot.time.min.js" />
+    <Content Include="Scripts\gmaps.js" />
+    <Content Include="Modules\FacilitySetup\Views\Index.cshtml" />
+    <Content Include="Modules\FacilitySetup\Views\_FacilitySetupLayout.cshtml" />
+    <Content Include="Modules\FacilitySetup\Views\_ViewStart.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-chosen.scss" />
+    <Content Include="Content\bootstrap-chosen.less" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Modules\FacilitySetup\Views\Index.cshtml" />
+    <Content Include="Modules\Account\Manage\Views\_AccountLayout.cshtml" />
+    <Content Include="Modules\FacilitySetup\Views\_FacilitySetupLayout.cshtml" />
+    <Content Include="Modules\FacilitySetup\Views\_ViewStart.cshtml" />
+    <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.1.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.js" />
+    <Content Include="Scripts\jquery.cookie.js" />
+    <Content Include="Scripts\jquery.dataTables.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
+    <Content Include="Scripts\jquery.ext.dataTables.js" />
+    <Content Include="Scripts\jquery.flot.tooltip.js" />
+    <Content Include="Scripts\jquery.slimscroll.js" />
+    <Content Include="Scripts\jquery.slimscroll.min.js" />
+    <Content Include="Scripts\jquery.sparkline.js" />
+    <Content Include="Scripts\jquery.sparkline.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ar.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.az.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.bg.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ca.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.cs.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.cy.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.da.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.de.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.el.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.es.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.et.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fa.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fi.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fr.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.gl.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.he.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hr.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hu.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.id.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.is.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.it.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ja.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ka.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.kk.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.kr.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.lt.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.lv.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.mk.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ms.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.nb.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.nl-BE.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.nl.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.no.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.pl.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.pt-BR.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.pt.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ro.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.rs-latin.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.rs.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ru.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sk.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sl.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sq.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sv.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sw.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.th.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.tr.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ua.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.vi.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.zh-CN.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.zh-TW.js" />
+    <Content Include="Scripts\modernizr-2.7.2.js" />
+    <Content Include="Scripts\moment-timezone.js" />
+    <Content Include="Scripts\moment-timezone.min.js" />
+    <Content Include="Scripts\moment-with-langs.js" />
+    <Content Include="Scripts\moment-with-langs.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Site\bs-docs.js" />
+    <Content Include="Scripts\Site\front.js" />
+    <Content Include="Scripts\Site\gmaps.js" />
+    <Content Include="Scripts\Site\jquery.localscroll-min.js" />
+    <Content Include="Scripts\Site\jquery.scrollTo-min.js" />
+    <Content Include="Scripts\Site\local-scroll-init.js" />
+    <Content Include="Scripts\Site\nav-activate.js" />
+    <Content Include="Scripts\Site\status-update-screen-scripts.js" />
+    <Content Include="Scripts\Site\status-update-screen-scripts2.js" />
+    <Content Include="Scripts\wysihtml5\parser_rules\advanced.js" />
+    <Content Include="Scripts\wysihtml5\parser_rules\simple.js" />
+    <Content Include="Scripts\wysihtml5\wysihtml5-0.3.0.js" />
+    <Content Include="Scripts\wysihtml5\wysihtml5-0.3.0.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="SeederFiles\BedType.txt" />
+    <Content Include="SeederFiles\County.txt" />
+    <Content Include="SeederFiles\Facility.txt" />
+    <Content Include="SeederFiles\FacilityType.txt" />
+    <Content Include="SeederFiles\FuelType.txt" />
+    <Content Include="SeederFiles\NamesFirst.txt" />
+    <Content Include="SeederFiles\NamesLast.txt" />
+    <Content Include="SeederFiles\Region.txt" />
+    <Content Include="SeederFiles\StaffType.txt" />
+    <Content Include="SeederFiles\State.txt" />
+    <Content Include="SeederFiles\SystemsType.txt" />
+    <Content Include="SeederFiles\Unit.txt" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Emails\Web.config" />
+    <Content Include="Scripts\jquery-2.1.1.min.map" />
+    <Content Include="Views\Emails\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Seed.cshtml" />
+    <Content Include="Views\Shared\_PublicLayout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BrockAllen.MembershipReboot.Nh\BrockAllen.MembershipReboot.Nh.csproj">
+      <Project>{e53d1e50-194f-445f-9477-fcbc3e6da824}</Project>
+      <Name>BrockAllen.MembershipReboot.Nh</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49742</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49742/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,1 @@
+﻿alert("Apple alert from a module specific javascript.");

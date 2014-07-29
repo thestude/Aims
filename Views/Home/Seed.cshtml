@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Seed";
+}
+<div class="row">
+    <div class="col-md-6">
+        <h2>Select a task to seed the database with data.</h2>
+        <form action="@Url.Content("~/seed")" method="get">
+            <div class="row">
+                <div class="col-md-6">
+                    <select name="task" id="task">
+                        <option value="">----Select-----</option>
+                        <option value="lookups">lookups</option>
+                        <option value="all">all</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>
+                        <button class="btn btn-primary btn-large" type="submit">Run</button>
+                    </p>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

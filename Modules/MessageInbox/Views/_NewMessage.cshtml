@@ -1,0 +1,65 @@
+﻿<!-- New Message Modal -->
+<div class="modal fade" id="newMessage" tabindex="-1" role="dialog" aria-labelledby="newMessageLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form class="mail-compose form-horizontal" action="#">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="newMessageLabel"><i class="fa fa-edit"></i>Compose Message</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="" class="col-sm-3">To EOC in:</label>
+                        <div class="col-sm-9">
+                            <select class="form-control">
+                                <option value="3">Area 11</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-sm-3">Message Type:</label>
+                        <div class="col-sm-9">
+                            <select class="form-control">
+                                <option value="1">Community Issues(s)</option>
+                                <option value="2">ER Issue(s)</option>
+                                <option value="3">Facility</option>
+                                <option value="4">Food</option>
+                                <option value="5">Other</option>
+                                <option value="6">Patient Issue(s)</option>
+                                <option value="7">Public Health Message</option>
+                                <option value="8">Services</option>
+                                <option value="9">Staff</option>
+                                <option value="10">Structural/Facility Issues</option>
+                                <option value="11">Supplies</option>
+                                <option value="12">Traffic</option>
+                                <option value="13">Utilities</option>
+                                <option value="14">Water</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-sm-3">Priority:</label>
+                        <div class="col-sm-9">
+                            <select class="form-control">
+                                <option value="1">Normal</option>
+                                <option value="2">Urgent</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Subject" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control wysihtml5" rows="6"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-share-square-o"></i>Send</button>
+                        <a type="button" class="btn" data-dismiss="modal">Cancel</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

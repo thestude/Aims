@@ -1,0 +1,18 @@
+﻿@model AIMS.Modules.Account.Models.SendUsernameReminderInputModel
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary("Errors")
+
+    @Html.AntiForgeryToken()
+    
+    <fieldset>
+        <legend>Send Username Reminder</legend>
+
+        @Html.EditorForModel()
+
+        <div class="buttons">
+            <button>Send Reminder</button>
+        </div>
+    </fieldset>
+}

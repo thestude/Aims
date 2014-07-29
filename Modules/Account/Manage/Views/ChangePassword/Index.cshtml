@@ -1,0 +1,126 @@
+﻿@model AIMS.Modules.Account.Models.ChangePasswordInputModel
+
+    @Html.ValidationSummary()
+    @Html.AntiForgeryToken()
+
+        <div class="messages">
+
+            <div class="content-header">
+                <h1><i class="fa fa-edit"></i>Edit Profile</h1>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+
+                    <form class="form-horizontal" action="#">
+                        <fieldset>
+                            <legend>User Information</legend>
+
+                            <div class="form-group">
+                                <label for="" class="col-sm-3">First Name</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="col-sm-3">Last Name</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="col-sm-3">Phone Number</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" />
+                                    <p class="help-block">Format: (123) 456-7890</p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="col-sm-3">Mobile Number</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" />
+                                    <p class="help-block">Format: (123) 456-7890</p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="col-sm-3">Mobile Carrier</label>
+                                <div class="col-sm-9">
+                                    <select name="MobileCarrier" id="MobileCarrier" class="bs-select" data-width="100%">
+                                        <option selected="selected" value="-1">Please Select</option>
+                                        <option value="1">T-Mobile</option>
+                                        <option value="2">AT&amp;T Wireless</option>
+                                        <option value="3">Verizon</option>
+                                        <option value="4">Alltel</option>
+                                        <option value="5">Boost</option>
+                                        <option value="6">Cingular Wireless</option>
+                                        <option value="7">Famers Wireless</option>
+                                        <option value="8">Metrocall</option>
+                                        <option value="9">Metrocall 2-way</option>
+                                        <option value="10">Southern LINC</option>
+                                        <option value="11">Sprint (PCS)</option>
+                                        <option value="12">Sprint (Nextel)</option>
+                                        <option value="13">USA Mobility</option>
+                                        <option value="14">Virgin Mobile</option>
+                                        <option value="15">Cellular South</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="col-sm-3">Email address</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" />
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Update Password</legend>
+
+                            <div class="form-group">
+                                <label for="" class="col-sm-3">Username</label>
+                                <div class="col-sm-9">
+                                    stateeoc
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="col-sm-3">Old Password</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="password" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="col-sm-3">New Password</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="password" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="col-sm-3">Confirm Password</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="password" />
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <br />                        
+
+                        <div class=" right">
+                            <button type="submit" class="btn btn-default"><i class="fa fa-refresh"></i>Reset</button>
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-share-square-o"></i>Save Changes</button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+

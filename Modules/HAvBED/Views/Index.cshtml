@@ -1,0 +1,49 @@
+﻿<!--#include virtual="includes/top.shtml" -->
+<div class="messages">
+
+    <div class="content-header">
+        <h1><i class="fa fa-ambulance"></i> HAvBED</h1>
+    </div>
+
+<form class="mail-compose form-horizontal" action="#">
+
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Nav tabs as pills -->
+            <ul class="nav nav-pills">
+                <li class="active"><a href="#facility" data-toggle="tab">Individal Facility Data</a></li>
+                <li><a href="#region" data-toggle="tab">Region Aggregated Data</a></li>
+                <li><a href="#state" data-toggle="tab">State Aggregated Data</a></li>
+            </ul>
+			
+            <hr>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="tab-pane active" id="facility">
+                    <!--#include virtual="includes/teasers/form-havbed-facility.shtml" -->
+                   
+                            @Html.Partial("_HavbedFacility")
+                       
+                </div>
+
+                <div class="tab-pane" id="region">
+                    <!--#include virtual="includes/teasers/form-havbed-region.shtml" -->
+                    
+                        @Html.Partial("_HavbedRegion")
+                   
+                </div>
+
+                <div class="tab-pane" id="state">
+                    <!--#include virtual="includes/teasers/form-havbed-state.shtml" -->
+                    
+                            @Html.Partial("_HavbedState")
+                        
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+</div>
+<!--#include virtual="includes/bottom.shtml" -->

@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>       <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>          <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>          <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="Alabama Incident management system">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - AIMS</title>
+
+    <!-- google fonts -->
+    <!-- Roboto, Roboto Condensed
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic|Roboto+Condensed:400italic,700italic,400,700' rel='stylesheet' type='text/css'> -->
+    <!-- Raleway -->
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,700,200' rel='stylesheet' type='text/css'>
+    <!-- Sintony -->
+    <link href='http://fonts.googleapis.com/css?family=Sintony:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- favicons -->
+    <link rel="shortcut icon" href="~/Content/images/aims-favicon.png">
+    @Styles.Render("~/Content/css")
+    @RenderSection("styles", required: false)
+
+        @*TODO: Take care of this for map loading.*@
+    <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/tags/markerclusterer/1.0/src/markerclusterer.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <script src='@Scripts.Url("~/bundles/modernizr")' async> </script>
+    <![endif]-->
+
+</head>
+<body class="skin-aims">
+    <!--[if lt IE 7]> <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p> <![endif]-->
+    <!-- BEGIN Navbar -->
+    <div id="navbar" class="navbar navbar-fixed">
+        <button type="button" class="navbar-toggle navbar-btn collapsed" data-toggle="collapse" data-target="#sidebar">
+            <span class="fa fa-bars"></span>
+        </button>
+        <a class="navbar-brand" href="@Url.Action("Index", "Dashboard")">
+            <img src="~/Content/images/aims-logo-175w-reverse.png" alt="Alabama Incident Management System" class="brand-expanded img-responsive">
+        </a>
+
+        <!-- BEGIN Navbar Buttons -->
+        <ul class="nav flaty-nav pull-right">
+            <!-- IBA -->
+            <li class="hidden-xs">
+                <a href="@Url.Action("Index", "FacilityStatus")">Projected IBA <span class="label label-large label-danger">18%</span>
+                </a>
+            </li>
+            <!-- BEGIN Button Messages -->
+            <li class="hidden-xs">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                    <i class="fa fa-envelope"></i>
+                    <span class="badge badge-success">2</span>
+                </a>
+
+                <!-- BEGIN Messages Dropdown -->
+                <ul class="dropdown-navbar dropdown-menu">
+                    <li class="nav-header">
+                        <i class="fa fa-comments"></i>
+                        2 Unread Messages
+                    </li>
+
+                    <li class="msg">
+                        <a href="@Url.Action("Index", "MessageInbox")">
+                            <div>
+                                <span class="msg-title">ADPH > Area 11</span>
+                                <span class="msg-time">
+                                    <i class="fa fa-clock-o"></i>
+                                    <span>2 Days ago</span>
+                                </span>
+                            </div>
+                            <p><strong>Status concerning 12/25/2012 tornados</strong><br />
+                                This is an AIMS exercise. HHS (Health and Human Services) is expecting 100% participation&hellip;</p>
+                        </a>
+                    </li>
+                    <li class="msg">
+                        <a href="@Url.Action("Index", "MessageInbox")">
+                            <div>
+                                <span class="msg-title">None</span>
+                                <span class="msg-time">
+                                    <i class="fa fa-clock-o"></i>
+                                    <span>17 Days ago</span>
+                                </span>
+                            </div>
+                            <p><strong>De-Activation of Aims for Hurricane Isaac Data Collection</strong></p>
+                        </a>
+                    </li>
+                    <li class="msg">
+                        <a href="@Url.Action("Index", "MessageInbox")">
+                            <div>
+                                <span class="msg-title">None</span>
+                                <span class="msg-time">
+                                    <i class="fa fa-clock-o"></i>
+                                    <span>18 Days ago</span>
+                                </span>
+                            </div>
+                            <p><strong>Activation of Aims for Hurricane Isaac Data Collection</strong></p>
+                        </a>
+                    </li>
+                    <li class="more">
+                        <a href="@Url.Action("Index", "MessageInbox")">See all messages</a>
+                    </li>
+                </ul>
+                <!-- END Notifications Dropdown -->
+            </li>
+            <!-- END Button Messages -->
+            <!-- BEGIN Button User -->
+            <li class="user-profile two-line-navbar-btn">
+                <a data-toggle="dropdown" href="#" class="user-menu dropdown-toggle">
+                    <span class="hhh" id="user_info">
+                        <span class="user-info-row">
+                            <span class="user-info-name">Jane Doe</span> - <span class="user-info-auth-level">Analyst</span>
+                        </span>
+                        <span class="user-info-row">
+                            <span class="user-info-facility">Memorial Hospital</span> - <span class="user-info-region">Region 7</span>
+                        </span>
+                    </span>
+                    <i class="fa fa-caret-down"></i>
+                </a>
+
+                <!-- BEGIN User Dropdown -->
+                <ul class="dropdown-menu dropdown-navbar" id="user_menu">
+                    <li class="nav-header">
+                        <i class="fa fa-clock-o"></i>
+                        Logged in since 20:45
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("Index", "ChangePassword")">
+                            <i class="fa fa-user"></i>
+                            Edit Profile
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("Index", "FacilityStatus")">
+                            <i class="fa fa-hospital-o"></i>
+                            Edit Facility
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("Index", "Help")">
+                            <i class="fa fa-question"></i>
+                            Help
+                        </a>
+                    </li>
+
+                    <li class="divider visible-xs"></li>
+
+                    <li class="visible-xs">
+                        <a href="#">
+                            <i class="fa fa-envelope"></i>
+                            Messages
+                            <span class="badge badge-success">3</span>
+                        </a>
+                    </li>
+
+                    <li class="divider"></li>
+
+                    <li>
+                        <a href="@Url.Action("New", "Session")">
+                            <i class="fa fa-off"></i>
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+                <!-- BEGIN User Dropdown -->
+            </li>
+            <!-- END Button User -->
+        </ul>
+        <!-- END Navbar Buttons -->
+    </div>
+    <!-- END Navbar -->
+
+    <div class="container" id="main-container">
+        <!-- BEGIN Sidebar -->
+        <div id="sidebar" class="navbar-collapse collapse">
+            <!-- BEGIN Navlist -->
+            <ul class="nav nav-list">
+                <!-- BEGIN Brand -->
+                <!-- <li class="brand">
+                    <a href="logo.html" target="_blank">
+                        <img src="images/aims-logo-200w-reverse.png" alt="Alabama Incident Management System" class="brand-expanded img-responsive">
+                        <img src="images/aims-favicon.png" alt="Alabama Incident Management System" class="brand-collapsed img-responsive">
+                    </a>
+                </li> -->
+                <!-- END Brand -->
+                <li id="nav-dashboard">
+                    <a href="@Url.Action("Index", "Dashboard")"><i class="fa fa-desktop"></i><span>Dashboard</span></a>
+                </li>
+
+                <li id="nav-activate-aims"><a href="@Url.Action("Index", "AIMSActivation")"><i class="fa fa-power-off"></i>Activate AIMS</a></li>
+
+                <li id="nav-situation">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="fa fa-bullseye"></i><span>Situation</span><b class="arrow fa fa-angle-right"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li id="nav-timeline"><a href="@Url.Action("Index", "TimeLine")">Timeline</a></li>
+                        <li id="nav-map"><a href="@Url.Action("Index", "Dashboard")">Map</a></li>
+                        <li id="nav-facilities-status"><a href="@Url.Action("Index", "FacilityStatus")">Facilities Status</a></li>
+                        <li id="nav-people-search"><a href="@Url.Action("Index", "PeopleSearch")">People Search</a></li>
+                        <li id="nav-transport-manifest-list"><a href="@Url.Action("Index", "TransportManifest")">Transport Manifest List</a></li>
+                    </ul>
+                </li>
+
+                <li id="nav-status">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="fa fa-bullhorn"></i><span>Status</span><b class="arrow fa fa-angle-right"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li id="nav-update"><a href="@Url.Action("Index", "Update")">Update</a></li>
+                        <li id="nav-form-response"><a href="@Url.Action("Index", "FormResponse")">Form Response</a></li>
+                        <li id="nav-havbed"><a href="@Url.Action("Index", "HAvBED")">HAvBED</a></li>
+                    </ul>
+                </li>
+
+                <li id="nav-messages">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="fa fa-comments-o"></i><span>Messages</span><b class="arrow fa fa-angle-right"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li id="nav-inbox"><a href="@Url.Action("Index", "MessageInbox")">Inbox</a></li>
+                        <li id="nav-patient-transfer"><a href="@Url.Action("Index", "PatientTransfer")">Patient Transfer</a></li>
+                        <li id="nav-general-request"><a href="@Url.Action("Index", "GeneralRequest")">General Request</a></li>
+                    </ul>
+                </li>
+
+                <li id="nav-support">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="fa fa-briefcase"></i><span>Support</span><b class="arrow fa fa-angle-right"></b>
+                    </a>
+                    <ul class="submenu">
+                        <li id="nav-account"><a href="#">Account</a></li>
+                        <li id="nav-contacts"><a href="@Url.Action("Index", "Contacts")">Contacts</a></li>
+                        <li id="nav-documents"><a href="@Url.Action("Index", "Documents")">Documents</a></li>
+                        <li id="nav-links"><a href="@Url.Action("Index", "Links")">Links</a></li>
+                        <li id="nav-links"><a href="@Url.Action("Index", "Users")">Users</a></li>
+                        <li id="nav-help"><a href="@Url.Action("Index", "Help")">Help</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- END Navlist -->
+            <!-- BEGIN Sidebar Collapse Button -->
+            <div id="sidebar-collapse" class="hidden-xs">
+                <i class="fa fa-angle-double-left"></i>
+            </div>
+            <!-- END Sidebar Collapse Button -->
+        </div>
+        <!-- END sidebar -->
+        <!-- BEGIN Content -->
+        <div id="main-content">
+            @RenderBody()
+            <footer>
+                <p>2014 © Alabama Incident Management System</p>
+            </footer>
+
+            <a id="btn-scrollup" class="btn btn-circle btn-lg" href="#"><i class="fa fa-chevron-up"></i></a>
+        </div>
+        <!-- END Content -->
+    </div>
+    <!-- END Container -->
+    <script src='@Scripts.Url("~/bundles/jquery")'> </script>
+    <script src='@Scripts.Url("~/bundles/main")' async> </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

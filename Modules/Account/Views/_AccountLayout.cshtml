@@ -1,0 +1,12 @@
+﻿@{
+    Layout = "~/Views/Shared/_PublicLayout.cshtml"; //Must be relative (refers to main apps layout)
+}
+@RenderBody()
+@section scripts {
+     @Scripts.Render("~/bundles/js/modules/Authentication")
+}
+@section styles {
+    @Styles.Render("~/bundles/css/modules/Authentication")
+}
+
+
