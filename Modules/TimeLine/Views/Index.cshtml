@@ -1,4 +1,4 @@
-﻿@*<!--#include virtual="includes/top.shtml" -->
+﻿@*<!--#include virtual="includes/top.shtml"*@ 
 
 <div class="timeline">
     <div class="content-header">
@@ -13,9 +13,9 @@
 
         </div>
     </div>
+</div>
 
-
-    <div class="row">
+    @*<div class="row">
         <div class="col-md-12">
 
             <!--#include virtual="includes/teasers/timeline.shtml" -->
@@ -53,15 +53,15 @@
 
         </div>
     </div>
-</div>
+</div>*@
 
-<!--#include virtual="includes/bottom.shtml" -->*@
+@*<!--#include virtual="includes/bottom.shtml" -->*@
+
 
 @{
     ViewBag.Title = "Home Page";
 }
 
-<h1> TimeLine Demo</h1>
 <div class="row">
     <div class="col-md-12">
         <select data-bind="options: facilityNames, value: facilityName, optionsCaption: 'Choose..'">List of Facilities</select>
@@ -70,11 +70,9 @@
 
 <div class="row">
     <div class="col-md-12">
-
         <input type="checkbox" id="chkVisibility" data-bind="checked: visibility" /> Private
         <input type="text" placeholder="Message" data-bind="value: message" />
         <button class="btn btn-primary" data-bind="click: sendMessage"> Send </button>
-
     </div>
 </div>
 <div data-bind="foreach:facilityNames"></div>
@@ -85,18 +83,9 @@
     <div class="row">
         <div class="col-md-1"><span data-bind="text:$data.visibility ? 'Private' : 'Public', css: { 'label':true, 'label-danger': $data.visibility, 'label-primary': !$data.visibility }">Test</span></div>
         <div class="col-md-6" data-bind="text:$data.message"></div>
-
     </div>
 </div>
 
-@section scripts
-{
 
-    <script src="~/Scripts/jquery.signalR-2.1.0.js"></script>
-    <script src="~/SignalR/hubs"></script>
-    <script src="~/Scripts/knockout-3.1.0.js"></script>
-    <script src="~/Scripts/bootstrap.js"></script>
-    <script src="~/Scripts/timeline.js"></script>
-}
 
 

@@ -3,7 +3,6 @@ using System.IO;
 using System.Linq;
 using AIMS.Models;
 using BrockAllen.MembershipReboot;
-using Glimpse.AspNet.Tab;
 using NHibernate;
 using NHibernate.Criterion;
 using NHibernate.SqlCommand;
@@ -40,6 +39,10 @@ namespace AIMS.Helpers
                     _session.Clear();
 
                     PopulateFacilities();
+                    _session.Flush();
+                    _session.Clear();
+
+                    PopulateFacilityContacts();
                     _session.Flush();
                     _session.Clear();
 
@@ -134,8 +137,8 @@ namespace AIMS.Helpers
 
         private void PopulateFacilities()
         {
-            var systemsTypes = GetList("facilities");
-            foreach (var item in systemsTypes)
+            var list = GetList("facilities");
+            foreach (var item in list)
             {
                 string[] fields = item.Split('|');
                 var county = _session.QueryOver<County>().Where(c => c.Name == fields[10].Trim()).Take(1).SingleOrDefault();
@@ -165,6 +168,27 @@ namespace AIMS.Helpers
             }
         }
 
+        private void PopulateFacilityContacts()
+        {
+            var facilities = _session.QueryOver<Facility>().List();
+            var count = 0;
+            foreach (var facility in facilities)
+            {
+                var contact = new Contact
+                {
+                    FirstName = SelectRandomString(GetList("firstnames")),
+                    LastName = SelectRandomString(GetList("lastnames")),
+                    Title = SelectRandomString(new []{"MD","NP",""}),
+                    EmailAddress = SelectRandomString(GetList("lastnames")) + count + "@al.aimslive.org",
+                    PhoneNumber = String.Format("{0}-{1}-{2}", GenerateRandomNumericString(3), 
+                                                                GenerateRandomNumericString(3), 
+                                                                GenerateRandomNumericString(4)),
+                };
+                contact.Organization = facility;
+                _session.Save(contact);
+                count++;
+            }
+        }
         private string GenerateRandomAlphaString(int length)
         {
             var chars = "abcdefghijklmnopqrstuvwxyz";

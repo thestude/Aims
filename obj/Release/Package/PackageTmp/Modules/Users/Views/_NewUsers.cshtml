@@ -1,0 +1,139 @@
+﻿<!-- New User Modal -->
+<div class="modal fade" id="newUser" tabindex="-1" role="dialog" aria-labelledby="newUserLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form class="mail-compose form-horizontal" action="#">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="newUserLabel"><i class="fa fa-edit"></i>Add a User</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="" class="col-sm-3">First Name</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="" class="col-sm-3">Last Name</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="" class="col-sm-3">Phone Number</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" />
+                            <p class="help-block">Format: (123) 456-7890</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="" class="col-sm-3">Mobile Number</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" />
+                            <p class="help-block">Format: (123) 456-7890</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="" class="col-sm-3">Mobile Carrier</label>
+                        <div class="col-sm-9">
+                            <select name="MobileCarrier" id="MobileCarrier" class="bs-select" data-width="100%">
+                                <option selected="selected" value="-1">Please Select</option>
+                                <option value="1">T-Mobile</option>
+                                <option value="2">AT&amp;T Wireless</option>
+                                <option value="3">Verizon</option>
+                                <option value="4">Alltel</option>
+                                <option value="5">Boost</option>
+                                <option value="6">Cingular Wireless</option>
+                                <option value="7">Famers Wireless</option>
+                                <option value="8">Metrocall</option>
+                                <option value="9">Metrocall 2-way</option>
+                                <option value="10">Southern LINC</option>
+                                <option value="11">Sprint (PCS)</option>
+                                <option value="12">Sprint (Nextel)</option>
+                                <option value="13">USA Mobility</option>
+                                <option value="14">Virgin Mobile</option>
+                                <option value="15">Cellular South</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="" class="col-sm-3">Username</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="" class="col-sm-3">Email Address</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="" class="col-sm-3">Password</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" type="password" />
+                            <p class="help-block">At least 6 characters long</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="active-user" class="col-sm-3">Active User</label>
+                        <div class="col-sm-9">
+                            <label>
+                                <input id="active-user" type="checkbox" checked disabled></label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="active-user" class="col-sm-3"></label>
+                        <div class="col-sm-9">
+                            <button type="submit" class="btn btn-default" disabled><i class="fa fa-unlock"></i>Unlock Account</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="" class="col-sm-3">Select Roles</label>
+                        <div class="col-sm-9">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="gender" id="role-mns-administrator" value="MNSAdministrator">
+                                MNS Administrator
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="gender" id="mns-user" value="MNSUsre">
+                                MNS User
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-share-square-o"></i>Create User</button>
+                        <a type="button" class="btn" data-dismiss="modal">Cancel</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        $('input#add-relationship').bind('change', function () {
+            if ($('input#add-relationship').prop('checked')) {
+                $('#show-for-add-reltionship').removeClass('hide').fadeIn('fast');
+            } else {
+                $('#show-for-add-reltionship').hide();
+            }
+        });
+    });
+</script>

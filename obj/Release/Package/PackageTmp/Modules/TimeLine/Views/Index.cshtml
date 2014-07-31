@@ -1,0 +1,60 @@
+﻿<!--#include virtual="includes/top.shtml" -->
+
+<div class="timeline">
+    <div class="content-header">
+        <div class="row">
+            <div class="col-sm-10">
+                <h1><i class="fa fa-calendar"></i>Timeline</h1>
+            </div>
+
+            <div class="col-sm-2 right">
+                <a href="#" data-toggle="modal" data-target="#newStatus" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>New Status</a>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <!--#include virtual="includes/teasers/timeline.shtml" -->
+
+            <script type="text/javascript">
+                $(function () {
+                    /* Since we don't have the help of a server side language to limit results displayd
+                    we have to use some Javascript here for the comp 
+                    the following script should not be a part of the production solution */
+
+                    /* if we're on the dashboard page 
+                    use slimscroll to control the size of the results
+                    else ... don't */
+
+                    /*
+                    var pathname = window.location.pathname.split('/');
+                
+                    if (pathname[pathname.length - 1] == 'dashboard.shtml') { 
+                        // Initialize SlimScroll 
+                        $('.messages').slimScroll({
+                            height: '500px'
+                        });
+                    }
+                    */
+                });
+            </script>
+
+        <!-- BEGIN Timeline -->
+             @Html.Partial("_TimelineList")
+        <!-- END Timeline -->
+
+        <!-- BEGIN New Status Modal -->
+            @Html.Partial("_NewTimelineStatus")
+        <!-- END New Status Modal -->
+
+        </div>
+    </div>
+</div>
+
+<!--#include virtual="includes/bottom.shtml" -->
+
+

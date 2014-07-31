@@ -65,11 +65,17 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\BrockAllen.MembershipReboot.WebHost.7.1.0\lib\net45\BrockAllen.MembershipReboot.WebHost.dll</HintPath>
     </Reference>
+    <Reference Include="Elmah">
+      <HintPath>..\packages\elmah.corelibrary.1.2.1\lib\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah.Mvc">
+      <HintPath>..\packages\Elmah.MVC.2.1.1\lib\net40\Elmah.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="FluentValidation, Version=5.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -155,6 +161,9 @@
     <Reference Include="Microsoft.AspNet.Identity.Owin">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.0.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Client">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Client.2.1.1\lib\net45\Microsoft.AspNet.SignalR.Client.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.SignalR.Core">
       <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.1.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
     </Reference>
@@ -162,15 +171,13 @@
       <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.1.1\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Microsoft.Owin">
       <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin.Host.SystemWeb">
-      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.0.2\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Microsoft.Owin.Security">
       <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin.Security.Cookies">
@@ -327,12 +334,11 @@
     <Folder Include="Modules\MessageInbox\Models\" />
     <Folder Include="Modules\PatientTransfer\Models\" />
     <Folder Include="Modules\PeopleSearch\Models\" />
+    <Folder Include="Modules\StatusUpdate\Styles\" />
+    <Folder Include="Modules\TimeLine\Styles\" />
     <Folder Include="Modules\TransportManifest\Models\" />
-    <Folder Include="Modules\Update\Models\" />
     <Folder Include="Modules\Users\Models\" />
     <Folder Include="Vendor\" />
-    <Folder Include="Views\FacilityStatusMapping\" />
-    <Folder Include="Views\FacilityStatus\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -341,6 +347,7 @@
     <Compile Include="App_Start\NHibernateProfilerBootstrapper.cs" />
     <Compile Include="App_Start\RegisterDatatablesModelBinder.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="AutofacValidatorFactory.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
@@ -348,10 +355,13 @@
     </Compile>
     <Compile Include="Config\Bundles\DefaultBundleConfig.cs" />
     <Compile Include="Config\Bundles\ICustomBundleConfig.cs" />
+    <Compile Include="Helpers\CommonLists.cs" />
+    <Compile Include="Helpers\ModelStateHelper.cs" />
     <Compile Include="Helpers\SeedDatabase.cs" />
     <Compile Include="Helpers\StringHelpers.cs" />
     <Compile Include="Helpers\UserHelper.cs" />
     <Compile Include="Infrastructure\Authorization\UserAuthorizationService.cs" />
+    <Compile Include="Infrastructure\AutoFac\AutofacValidatorFactory.cs" />
     <Compile Include="Infrastructure\AutoFac\FluentValidatorModule.cs" />
     <Compile Include="Infrastructure\AutoFac\MembershipRebootModule.cs" />
     <Compile Include="Infrastructure\AutoFac\NHibernateModule.cs" />
@@ -379,6 +389,7 @@
     <Compile Include="Models\Bed.cs" />
     <Compile Include="Models\BedType.cs" />
     <Compile Include="Models\Capacity.cs" />
+    <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\County.cs" />
     <Compile Include="Models\EntityBase.cs" />
     <Compile Include="Models\Facility.cs" />
@@ -391,6 +402,7 @@
     <Compile Include="Models\Mapping\BedMapping.cs" />
     <Compile Include="Models\Mapping\BedTypeMapping.cs" />
     <Compile Include="Models\Mapping\CapacityMapping.cs" />
+    <Compile Include="Models\Mapping\ContactMapping.cs" />
     <Compile Include="Models\Mapping\CountyMapping.cs" />
     <Compile Include="Models\Mapping\EntityBaseMapping.cs" />
     <Compile Include="Models\Mapping\FacilityMapping.cs" />
@@ -398,7 +410,6 @@
     <Compile Include="Models\Mapping\FacilityTypeMapping.cs" />
     <Compile Include="Models\Mapping\FuelMapping.cs" />
     <Compile Include="Models\Mapping\FuelTypeMapping.cs" />
-    <Compile Include="Models\Mapping\OrganizationCapabilitiesMapping.cs" />
     <Compile Include="Models\Mapping\OrganizationMapping.cs" />
     <Compile Include="Models\Mapping\OrganizationTypeMapping.cs" />
     <Compile Include="Models\Mapping\StaffMapping.cs" />
@@ -406,7 +417,6 @@
     <Compile Include="Models\Mapping\StateMapping.cs" />
     <Compile Include="Models\Mapping\SystemsMapping.cs" />
     <Compile Include="Models\Mapping\SystemsTypeMapping.cs" />
-    <Compile Include="Models\OrganizationCapabilities.cs" />
     <Compile Include="Models\Organization.cs" />
     <Compile Include="Models\OrganizationType.cs" />
     <Compile Include="Models\Staff.cs" />
@@ -439,15 +449,28 @@
     <Compile Include="Modules\Account\Models\TwoFactorAuthInputModel.cs" />
     <Compile Include="Modules\Account\Registration\RegistrationController.cs" />
     <Compile Include="Modules\Account\Session\SessionController.cs" />
-    <Compile Include="Modules\FacilitySetup\FacilitySetupController.cs" />
-    <Compile Include="Modules\FacilitySetup\Config\FacilitySetupBundleConfig.cs" />
-    <Compile Include="Modules\FacilitySetup\Models\FacilitySetUp.cs" />
-    <Compile Include="Modules\FacilitySetup\Services\FacilitySetupService.cs" />
+    <Compile Include="Modules\FacilityStatus\FacilityStatus.cs" />
+    <Compile Include="Modules\OrganizationSetup\Models\OrganizationSetUpValidator.cs" />
+    <Compile Include="Modules\OrganizationSetup\OrganizationSetupController.cs" />
+    <Compile Include="Modules\OrganizationSetup\Config\OrganizationSetupBundleConfig.cs" />
+    <Compile Include="Modules\OrganizationSetup\Models\OrganizationSetUp.cs" />
+    <Compile Include="Modules\OrganizationSetup\Services\OrganizationSetupService.cs" />
     <Compile Include="Modules\AIMSActivation\AimsActivationController.cs" />
     <Compile Include="Modules\AIMSActivation\Config\AimsActivationBundleConfig.cs" />
     <Compile Include="Modules\FormResponse\Config\FormResponseBundleConfig.cs" />
     <Compile Include="Modules\FormResponse\FormResponseController.cs" />
-    <Compile Include="Modules\TimeLine\Hubs\TimelineHub.cs" />
+    <Compile Include="Modules\StatusUpdate\Models\StatusUpdate.cs" />
+    <Compile Include="Modules\StatusUpdate\Models\StatusUpdateValidator.cs" />
+    <Compile Include="Modules\StatusUpdate\Services\StatusUpdateService.cs" />
+    <Compile Include="Modules\TimeLine\Startup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modules\TimeLine\TimeLineController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modules\TimeLine\Hubs\TimeLineHub.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Modules\Users\UsersController.cs" />
     <Compile Include="Modules\Users\Config\UsersBundleConfig.cs" />
     <Compile Include="Modules\Contacts\ContactsController.cs" />
@@ -472,15 +495,13 @@
     <Compile Include="Modules\MessageInbox\Config\MessageInboxBundleConfig.cs" />
     <Compile Include="Modules\HAvBED\HAvBEDController.cs" />
     <Compile Include="Modules\HAvBED\Config\HAvBEDBundleConfig.cs" />
-    <Compile Include="Modules\Update\UpdateController.cs" />
-    <Compile Include="Modules\Update\Config\UpdateBundleConfig.cs" />
+    <Compile Include="Modules\StatusUpdate\StatusUpdateController.cs" />
+    <Compile Include="Modules\StatusUpdate\Config\StatusUpdateBundleConfig.cs" />
     <Compile Include="Modules\TransportManifest\TransportManifestController.cs" />
     <Compile Include="Modules\TransportManifest\Config\TransportManifestBundleConfig.cs" />
     <Compile Include="Modules\PeopleSearch\PeopleSearchController.cs" />
     <Compile Include="Modules\PeopleSearch\Config\PeopleSearchBundleConfig.cs" />
-    <Compile Include="Modules\FacilityStatus\FacilityStatus.cs" />
     <Compile Include="Modules\FacilityStatus\Config\FacilityStatusBundleConfig.cs" />
-    <Compile Include="Modules\TimeLine\TimeLineController.cs" />
     <Compile Include="Modules\TimeLine\Config\TimeLineBundleConfig.cs" />
     <Compile Include="Modules\DashBoard\DashBoardController.cs" />
     <Compile Include="Modules\DashBoard\Config\DashBoardBundleConfig.cs" />
@@ -492,7 +513,6 @@
     <Compile Include="Search\LuceneFullTextSearch.cs" />
     <Compile Include="Search\FullTextIndexedAttribute.cs" />
     <Compile Include="Search\LuceneIndexEventListener.cs" />
-    <Compile Include="Modules\TimeLine\Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-chosen.css" />
@@ -566,6 +586,8 @@
     <Content Include="Modules\Account\Scripts\example.js" />
     <Content Include="Modules\Account\Styles\example-index.css" />
     <Content Include="Modules\Account\Styles\example.css" />
+    <Content Include="Modules\StatusUpdate\Scripts\statusupdate.debug.js" />
+    <Content Include="Modules\OrganizationSetup\Scripts\organizationsetup.debug.js" />
     <Content Include="Modules\AIMSActivation\Scripts\example-index.js" />
     <Content Include="Modules\AIMSActivation\Scripts\example.js" />
     <Content Include="Modules\AIMSActivation\Styles\example-index.css" />
@@ -574,7 +596,21 @@
     <Content Include="Modules\FormResponse\Scripts\example.js" />
     <Content Include="Modules\FormResponse\Styles\example-index.css" />
     <Content Include="Modules\FormResponse\Styles\example.css" />
-    <Content Include="Scripts\Timeline.js" />
+    <Content Include="Scripts\jquery.signalR-2.1.1.js" />
+    <Content Include="Scripts\jquery.signalR-2.1.1.min.js" />
+    <Content Include="Modules\TimeLine\Scripts\TimeLine.js" />
+    <Content Include="Modules\TimeLine\Views\Edit.cshtml" />
+    <Content Include="Modules\TimeLine\Views\Index.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Modules\TimeLine\Views\New.cshtml" />
+    <Content Include="Modules\TimeLine\Views\_Form.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Modules\TimeLine\Views\_SituationLayout.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Modules\TimeLine\Views\_ViewStart.cshtml" />
     <Content Include="Modules\Users\Scripts\example-index.js" />
     <Content Include="Modules\Users\Scripts\example.js" />
     <Content Include="Modules\Users\Styles\example-index.css" />
@@ -631,10 +667,6 @@
     <Content Include="Modules\HAvBED\Scripts\example.js" />
     <Content Include="Modules\HAvBED\Styles\example-index.css" />
     <Content Include="Modules\HAvBED\Styles\example.css" />
-    <Content Include="Modules\Update\Scripts\example-index.js" />
-    <Content Include="Modules\Update\Scripts\example.js" />
-    <Content Include="Modules\Update\Styles\example-index.css" />
-    <Content Include="Modules\Update\Styles\example.css" />
     <Content Include="Modules\TransportManifest\Scripts\example-index.js" />
     <Content Include="Modules\TransportManifest\Scripts\example.js" />
     <Content Include="Modules\TransportManifest\Styles\example-index.css" />
@@ -647,10 +679,6 @@
     <Content Include="Modules\FacilityStatus\Scripts\example.js" />
     <Content Include="Modules\FacilityStatus\Styles\example-index.css" />
     <Content Include="Modules\FacilityStatus\Styles\example.css" />
-    <Content Include="Modules\TimeLine\Scripts\example-index.js" />
-    <Content Include="Modules\TimeLine\Scripts\example.js" />
-    <Content Include="Modules\TimeLine\Styles\example-index.css" />
-    <Content Include="Modules\TimeLine\Styles\example.css" />
     <Content Include="Modules\DashBoard\Scripts\example-index.js" />
     <Content Include="Modules\DashBoard\Scripts\example.js" />
     <Content Include="Modules\DashBoard\Scripts\mapping.js" />
@@ -730,12 +758,6 @@
     <Content Include="Modules\DashBoard\Views\_PatientTransfer.cshtml" />
     <Content Include="Modules\DashBoard\Views\_Messages.cshtml" />
     <Content Include="Modules\TimeLine\Models\README.md" />
-    <Content Include="Modules\TimeLine\Views\_Form.cshtml" />
-    <Content Include="Modules\TimeLine\Views\_SituationLayout.cshtml" />
-    <Content Include="Modules\TimeLine\Views\_ViewStart.cshtml" />
-    <Content Include="Modules\TimeLine\Views\Edit.cshtml" />
-    <Content Include="Modules\TimeLine\Views\Index.cshtml" />
-    <Content Include="Modules\TimeLine\Views\New.cshtml" />
     <Content Include="Modules\FacilityStatus\Views\_Form.cshtml" />
     <Content Include="Modules\FacilityStatus\Views\_FacilityStatusLayout.cshtml" />
     <Content Include="Modules\FacilityStatus\Views\_ViewStart.cshtml" />
@@ -758,12 +780,11 @@
     <Content Include="Modules\TransportManifest\Views\Index.cshtml" />
     <Content Include="Modules\TransportManifest\Views\New.cshtml" />
     <Content Include="Modules\TransportManifest\Views\TransportManifestDetail.cshtml" />
-    <Content Include="Modules\Update\Views\_Form.cshtml" />
-    <Content Include="Modules\Update\Views\_UpdateLayout.cshtml" />
-    <Content Include="Modules\Update\Views\_ViewStart.cshtml" />
-    <Content Include="Modules\Update\Views\Edit.cshtml" />
-    <Content Include="Modules\Update\Views\Index.cshtml" />
-    <Content Include="Modules\Update\Views\New.cshtml" />
+    <Content Include="Modules\StatusUpdate\Views\_StatusUpdateLayout.cshtml" />
+    <Content Include="Modules\StatusUpdate\Views\_ViewStart.cshtml" />
+    <Content Include="Modules\StatusUpdate\Views\Edit.cshtml" />
+    <Content Include="Modules\StatusUpdate\Views\Index.cshtml" />
+    <Content Include="Modules\StatusUpdate\Views\New.cshtml" />
     <Content Include="Modules\HAvBED\Views\_Form.cshtml" />
     <Content Include="Modules\HAvBED\Views\_HAvBEDLayout.cshtml" />
     <Content Include="Modules\HAvBED\Views\_ViewStart.cshtml" />
@@ -829,9 +850,7 @@
     <Content Include="Modules\DashBoard\Views\_NewTransfer.cshtml" />
     <Content Include="Modules\DashBoard\Views\_NewRequest.cshtml" />
     <Content Include="Modules\FacilityStatus\Views\_IBA.cshtml" />
-    <Content Include="Modules\TimeLine\Views\_NewTimelineStatus.cshtml" />
-    <Content Include="Modules\TimeLine\Views\_TimelineList.cshtml" />
-    <Content Include="Modules\Update\Views\_NewGeneralRequest.cshtml" />
+    <Content Include="Modules\StatusUpdate\Views\_NewGeneralRequest.cshtml" />
     <Content Include="Modules\Users\Views\_UsersLayout.cshtml" />
     <Content Include="Modules\Users\Views\_Form.cshtml" />
     <Content Include="Modules\Users\Views\_ViewStart.cshtml" />
@@ -853,9 +872,6 @@
     <Content Include="Modules\AIMSActivation\Views\Edit.cshtml" />
     <Content Include="Modules\AIMSActivation\Views\Index.cshtml" />
     <Content Include="Modules\AIMSActivation\Views\New.cshtml" />
-    <Content Include="Scripts\jquery.signalR-2.1.1.js" />
-    <Content Include="Scripts\jquery.signalR-2.1.1.min.js" />
-    <Content Include="Views\Shared\_UserAgreement.cshtml" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap-select.js" />
     <Content Include="Scripts\bootstrap-select.min.js" />
@@ -904,28 +920,9 @@
     <Content Include="Scripts\flot\jquery.flot.threshold.min.js" />
     <Content Include="Scripts\flot\jquery.flot.time.js" />
     <Content Include="Scripts\flot\jquery.flot.time.min.js" />
-    <Content Include="Scripts\gmaps.js" />
-    <Content Include="Modules\FacilitySetup\Views\Index.cshtml" />
-    <Content Include="Modules\FacilitySetup\Views\_FacilitySetupLayout.cshtml" />
-    <Content Include="Modules\FacilitySetup\Views\_ViewStart.cshtml" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-chosen.scss" />
-    <Content Include="Content\bootstrap-chosen.less" />
-    <Content Include="fonts\fontawesome-webfont.woff" />
-    <Content Include="fonts\fontawesome-webfont.ttf" />
-    <Content Include="fonts\fontawesome-webfont.eot" />
-    <Content Include="fonts\FontAwesome.otf" />
-    <Content Include="Modules\FacilitySetup\Views\Index.cshtml" />
-    <Content Include="Modules\Account\Manage\Views\_AccountLayout.cshtml" />
-    <Content Include="Modules\FacilitySetup\Views\_FacilitySetupLayout.cshtml" />
-    <Content Include="Modules\FacilitySetup\Views\_ViewStart.cshtml" />
-    <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.map" />
     <Content Include="Scripts\jquery.cookie.js" />
     <Content Include="Scripts\jquery.dataTables.js" />
     <Content Include="Scripts\jquery.dataTables.min.js" />
@@ -935,13 +932,14 @@
     <Content Include="Scripts\jquery.slimscroll.min.js" />
     <Content Include="Scripts\jquery.sparkline.js" />
     <Content Include="Scripts\jquery.sparkline.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-3.1.0.debug.js" />
+    <Content Include="Scripts\knockout-3.1.0.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.ar.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.az.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.bg.js" />
@@ -1017,7 +1015,81 @@
     <Content Include="Scripts\wysihtml5\parser_rules\simple.js" />
     <Content Include="Scripts\wysihtml5\wysihtml5-0.3.0.js" />
     <Content Include="Scripts\wysihtml5\wysihtml5-0.3.0.min.js" />
-    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Shared\_UserAgreement.cshtml" />
+    <Content Include="Modules\OrganizationSetup\Views\Index.cshtml" />
+    <Content Include="Modules\OrganizationSetup\Views\_OrganizationSetupLayout.cshtml" />
+    <Content Include="Modules\OrganizationSetup\Views\_ViewStart.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-chosen.scss" />
+    <Content Include="Content\bootstrap-chosen.less" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Modules\FacilitySetup\Views\Index.cshtml" />
+    <Content Include="Modules\Account\Manage\Views\_AccountLayout.cshtml" />
+    <Content Include="Modules\FacilitySetup\Views\_FacilitySetupLayout.cshtml" />
+    <Content Include="Modules\FacilitySetup\Views\_ViewStart.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-chosen.scss" />
+    <Content Include="Content\bootstrap-chosen.less" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Modules\FacilitySetup\Views\Index.cshtml" />
+    <Content Include="Modules\Account\Manage\Views\_AccountLayout.cshtml" />
+    <Content Include="Modules\FacilitySetup\Views\_FacilitySetupLayout.cshtml" />
+    <Content Include="Modules\FacilitySetup\Views\_ViewStart.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-chosen.scss" />
+    <Content Include="Content\bootstrap-chosen.less" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Modules\Account\Manage\Views\_AccountLayout.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-chosen.scss" />
+    <Content Include="Content\bootstrap-chosen.less" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Modules\Account\Manage\Views\_AccountLayout.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-chosen.scss" />
+    <Content Include="Content\bootstrap-chosen.less" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Modules\Account\Manage\Views\_AccountLayout.cshtml" />
+    <Content Include="NLog.config" />
+    <Content Include="Modules\StatusUpdate\Scripts\Web.Config" />
+    <Content Include="Modules\OrganizationSetup\Scripts\Web.Config" />
+    <Content Include="Modules\TimeLine\Scripts\Web.Config" />
+    <None Include="Properties\PublishProfiles\aimsv4.pubxml" />
     <Content Include="SeederFiles\BedType.txt" />
     <Content Include="SeederFiles\County.txt" />
     <Content Include="SeederFiles\Facility.txt" />
@@ -1048,10 +1120,13 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Emails\Web.config" />
-    <Content Include="Scripts\jquery-2.1.1.min.map" />
     <Content Include="Views\Emails\_ViewStart.cshtml" />
     <Content Include="Views\Home\Seed.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_PublicLayout.cshtml" />
+    <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <None Include="Scripts\_references.js" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

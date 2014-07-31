@@ -1,4 +1,6 @@
-﻿using AIMS.Models;
+﻿using System;
+using System.Security.Claims;
+using AIMS.Models;
 using System.Web.Mvc;
 using FluentValidation;
 using System.IdentityModel.Tokens;
@@ -22,6 +24,7 @@ namespace AIMS.Modules.Account.Session
         }
 
         // GET: /FacilitySetup/Example/New
+        [AllowAnonymous]
         public ActionResult New()
         {
             return View(new LoginInputModel());
@@ -30,6 +33,7 @@ namespace AIMS.Modules.Account.Session
         // POST: /FacilitySetup/Example/
         
         [HttpPost]
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public ActionResult Create(LoginInputModel model)
         {
@@ -38,6 +42,15 @@ namespace AIMS.Modules.Account.Session
                 AimsUser account;
                 if (_userAccountService.AuthenticateWithUsernameOrEmail(model.Username, model.Password, out account))
                 {
+                    var userClaims = new[]
+                                     {
+                                         new Claim(ClaimTypes.Email, account.Email),
+                                         new Claim(ClaimTypes.Name, account.Username),
+                                         new Claim(ClaimTypes.GivenName, account.LastName + ", " + account.FirstName)
+                                     };
+                    //add claims
+                    _userAccountService.AddClaims(account.ID, userClaims);
+
                     _authSvc.SignIn(account, model.RememberMe);
 
                     if (account.RequiresTwoFactorAuthCodeToSignIn())
@@ -74,7 +87,7 @@ namespace AIMS.Modules.Account.Session
                         return Redirect(model.ReturnUrl);
                     }
                     
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Dashboard");
                 }
                 else
                 {

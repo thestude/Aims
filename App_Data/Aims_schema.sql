@@ -23,6 +23,8 @@
 
     drop table if exists Capacity cascade
 
+    drop table if exists Contact cascade
+
     drop table if exists County cascade
 
     drop table if exists FacilityStatus cascade
@@ -32,8 +34,6 @@
     drop table if exists Fuel cascade
 
     drop table if exists FuelType cascade
-
-    drop table if exists OrganizationCapabilities cascade
 
     drop table if exists Organization cascade
 
@@ -211,6 +211,20 @@
        primary key (ID)
     )
 
+    create table Contact (
+        ID uuid not null,
+       Version int8 not null,
+       CreatedOn timestamptz default (now() at time zone 'utc') ,
+       LastUpdateOn timestamptz default (now() at time zone 'utc') ,
+       FirstName varchar(255) not null,
+       LastName varchar(255) not null,
+       Title varchar(255),
+       PhoneNumber varchar(255) not null,
+       EmailAddress varchar(255) not null,
+       OrganizationId uuid,
+       primary key (ID)
+    )
+
     create table County (
         ID uuid not null,
        Version int8 not null,
@@ -249,7 +263,7 @@
        CreatedOn timestamptz default (now() at time zone 'utc') ,
        LastUpdateOn timestamptz default (now() at time zone 'utc') ,
        TotalCapacity int4 not null,
-       Status boolean not null,
+       Status varchar(255) not null,
        AmountShort int4 not null,
        Measurement varchar(255),
        Notes varchar(255),
@@ -264,15 +278,6 @@
        CreatedOn timestamptz default (now() at time zone 'utc') ,
        LastUpdateOn timestamptz default (now() at time zone 'utc') ,
        Name varchar(255) not null,
-       primary key (ID)
-    )
-
-    create table OrganizationCapabilities (
-        ID uuid not null,
-       Version int8 not null,
-       CreatedOn timestamptz default (now() at time zone 'utc') ,
-       LastUpdateOn timestamptz default (now() at time zone 'utc') ,
-       CapabilitiesList varchar(255) not null,
        primary key (ID)
     )
 
@@ -296,7 +301,7 @@
        OrganizationTypeId uuid,
        CountyId uuid,
        ParentOrganizationId uuid,
-       OrganizationCapabilitiesId uuid,
+       Capabilities text,
        primary key (ID)
     )
 
@@ -320,9 +325,9 @@
        Version int8 not null,
        CreatedOn timestamptz default (now() at time zone 'utc') ,
        LastUpdateOn timestamptz default (now() at time zone 'utc') ,
-       Status boolean not null,
+       Status varchar(255) not null,
        AmountShort int4 not null,
-       Notes varchar(255) not null,
+       Notes varchar(255),
        FacilityId uuid,
        StaffTypeId uuid,
        primary key (ID)
@@ -502,6 +507,11 @@
         foreign key (FacilityId) 
         references Facility
 
+    alter table Contact 
+        add constraint organization_contact_fk 
+        foreign key (OrganizationId) 
+        references Organization
+
     alter table County 
         add constraint state_county_fk 
         foreign key (StateId) 
@@ -537,18 +547,13 @@
         foreign key (ParentOrganizationId) 
         references Organization
 
-    alter table Organization 
-        add constraint organizationcapabilities_organization_fk 
-        foreign key (OrganizationCapabilitiesId) 
-        references OrganizationCapabilities
-
     alter table OrganizationUsers 
-        add constraint FK423C12C65D6C51E5 
+        add constraint user_organization_fk 
         foreign key (UserId) 
         references AimsUser
 
     alter table OrganizationUsers 
-        add constraint FK423C12C62E621F1E 
+        add constraint organization_user_fk 
         foreign key (OrganizationId) 
         references Organization
 

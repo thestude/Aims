@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "Edit";
+}
+
+@using (Html.BeginForm("Update", "Users", new { id = "2" }))
+{
+    @Html.HttpMethodOverride(HttpVerbs.Put)
+    Html.RenderPartial("_Form");
+    <input id="btn-submit" type="submit" value="Update" />
+}
+

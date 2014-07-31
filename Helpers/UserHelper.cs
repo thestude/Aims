@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Web;
+using System.Web.Mvc;
 using AIMS.Models;
 using NHibernate;
 
@@ -16,10 +16,16 @@ namespace AIMS.Helpers
         private UserInfo _currentUser;
         private readonly ISession _session;
 
+        public UserInfoHelper()
+        {
+            _session = DependencyResolver.Current.GetService<ISession>();
+        }
+
         public UserInfoHelper(ISession session)
         {
             _session = session;
         }
+
         public UserInfo GetUserInfo(string userName)
         {
             var userInfo = new UserInfo();

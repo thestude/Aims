@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "New";
+}
+
+@using (Html.BeginForm("Create", "MessageInbox"))
+{
+    Html.RenderPartial("_Form");
+    <input id="btn-submit" type="submit" value="Submit" />
+}
+

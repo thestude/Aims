@@ -51,7 +51,11 @@ namespace AIMS.Models.Mapping
             Set(x => x.Organizations, collectionMapping =>
             {
                 collectionMapping.Table("OrganizationUsers");
-                collectionMapping.Key(k => k.Column("UserId"));
+                collectionMapping.Key(k =>
+                {
+                    k.Column("UserId");
+                    k.ForeignKey("user_organization_fk");
+                });
                 collectionMapping.Cascade(Cascade.Persist);
             }, map => map.ManyToMany(p => p.Column("OrganizationId")));
         }

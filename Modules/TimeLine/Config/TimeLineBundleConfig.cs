@@ -13,8 +13,13 @@ namespace AIMS.Modules.Timeline.Config
         {
            //Module-wide script bundle
             bundles.Add(new ScriptBundle("~/bundles/js/modules/TimeLine")
-                .Include("~/Modules/TimeLine/Scripts/example.js",
-                         "~/Modules/TimeLine/Scripts/example-index.js"));
+                .Include("~/Modules/TimeLine/Scripts/TimeLine.js",
+                "~/Scripts/jquery.signalR-2.1.0.js",
+                "~/SignalR/hubs",
+                "~/Scripts/knockout-3.1.0.js",
+                "~/Scripts/bootstrap.js",
+                "~/Scripts/timeline.js"
+                ));
 
             //Module-wide style bundle
             bundles.Add(new StyleBundle("~/bundles/css/modules/TimeLine")

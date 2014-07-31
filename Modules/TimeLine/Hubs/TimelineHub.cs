@@ -1,14 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
-using Microsoft.AspNet.SignalR;
-using Microsoft.AspNet.SignalR.Hubs;
+using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.Identity;
+using System.Collections.Generic;
 using System.Collections.Concurrent;
+using Microsoft.AspNet.SignalR.Hubs;
 
-namespace AIMS.Modules.TimeLine
+
+namespace AIMS.Modules.TimeLine.Hubs
 {
     public class Facility
     {
@@ -23,7 +24,7 @@ namespace AIMS.Modules.TimeLine
     }
 
     [HubName("time")]
-    public class TimelineHub : Hub
+    public class TimeLineHub : Hub
     {
         string[] fakeFacilityNames = { "Test Facility 1", "Test Facility 2", "Test Facility 3" };
         Random randomIndex = new Random();
@@ -41,7 +42,6 @@ namespace AIMS.Modules.TimeLine
 
             if (Convert.ToBoolean(visibility))
             {
-
                 //var facilityName = fakeFacilityNames[randomIndex.Next(fakeFacilityNames.Length)];
                 //send to faility users only
                 Clients.Group(facilityName).AddTimelineEntry(true, message);
@@ -50,11 +50,10 @@ namespace AIMS.Modules.TimeLine
             {
                 //Send to all
                 Clients.All.newMessage(false, message);
-
             }
         }
 
-            public override Task OnConnected()
+        public override Task OnConnected()
         {
 
             // Get the username 

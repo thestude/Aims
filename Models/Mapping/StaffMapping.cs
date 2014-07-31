@@ -10,7 +10,7 @@ namespace AIMS.Models.Mapping {
 			Lazy(true);
 			Property(x => x.Status, map => map.NotNullable(true));
 			Property(x => x.AmountShort, map => map.NotNullable(true));
-			Property(x => x.Notes, map => map.NotNullable(true));
+			Property(x => x.Notes);
             ManyToOne(x => x.StaffType, colmap =>
             {
                 colmap.Column("StaffTypeId");

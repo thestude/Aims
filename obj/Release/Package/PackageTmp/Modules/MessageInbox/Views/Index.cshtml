@@ -1,0 +1,24 @@
+﻿<!--#include virtual="includes/top.shtml" -->
+<div class="messages">
+
+    <div class="content-header">
+        <h1><i class="fa fa-inbox"></i>Inbox</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <!--#include virtual="includes/teasers/inbox-list.shtml" -->
+           
+                    @Html.Partial("_InboxList")
+               
+        </div>
+    </div>
+
+</div>
+<!--#include virtual="includes/bottom.shtml" -->
+
+<!--#include virtual="/includes/teasers/new-message-modal.shtml" -->
+
+                        @Html.Partial("_NewMessage")
+        
+<!--page specific plugin scripts-->

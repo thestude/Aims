@@ -25,45 +25,6 @@ namespace AIMS.Models {
             OnCreated();
         }
 
-        ///// <summary>
-        ///// There are no comments for OnGenerator in the schema.
-        ///// </summary>
-        //public virtual bool OnGenerator
-        //{
-        //    get;
-        //    set;
-        //}
-
-
-        ///// <summary>
-        ///// There are no comments for Status in the schema.
-        ///// </summary>
-        //public virtual string Status
-        //{
-        //    get;
-        //    set;
-        //}
-
-
-        ///// <summary>
-        ///// There are no comments for ProjectedIBA in the schema.
-        ///// </summary>
-        //public virtual System.Nullable<int> ProjectedIBA
-        //{
-        //    get;
-        //    set;
-        //}
-
-
-        ///// <summary>
-        ///// There are no comments for Notes in the schema.
-        ///// </summary>
-        //public virtual string Notes
-        //{
-        //    get;
-        //    set;
-        //}
-
         /// <summary>
         /// There are no comments for Organization in the schema.
         /// </summary>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Security.Claims;
 using System.Web.Mvc;
 using AIMS.Helpers;
 using AIMS.Models;
@@ -28,7 +29,7 @@ namespace AIMS.Controllers
             user = this._userAccountService.CreateAccount("Test" + _r.Next(65), "password", "test" + _r.Next(65) + "@email.com");
             user.FirstName = "Test" + _r.Next(65);
             user.LastName = "Test" + _r.Next(65);
-            _session.Save(user);
+            _session.Update(user);
 
             return View();
         }
@@ -36,8 +37,15 @@ namespace AIMS.Controllers
         public ActionResult About()
         {
 
-            var user2 = _session.Query<AimsUser>().FirstOrDefault();
-            ViewBag.Message = string.Format("Your application description page.{0}", user2.FirstName);
+            //var user2 = _session.Query<AimsUser>().FirstOrDefault();
+            //ViewBag.Message = string.Format("Your application description page.{0}", user2.FirstName);
+
+            var identity = (ClaimsIdentity)User.Identity;
+            ViewBag.Email = identity.FindFirst(ClaimTypes.Email).Value;
+            ViewBag.UserName = identity.FindFirst(ClaimTypes.Name).Value;
+            ViewBag.GivenNames = identity.FindFirst(ClaimTypes.GivenName).Value;
+
+            
 
             return View();
         }

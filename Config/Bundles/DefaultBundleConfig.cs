@@ -44,7 +44,11 @@ namespace AIMS.Config.Bundles
                         "~/Scripts/Site/gmaps.js",
                         "~/Scripts/Site/front.js",
                         "~/Scripts/Site/nav-activate.js",
-                        "~/Scripts/Site/status-update-screen-scripts.js"
+                        "~/Scripts/Site/status-update-screen-scripts.js",
+
+                        //knockout
+                        "~/Scripts/knockout-{version}.js"
+
                         ));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
@@ -80,7 +84,8 @@ namespace AIMS.Config.Bundles
                         // responsive overides
                         "~/Content/Flatty/flaty-responsive.css",
                         "~/Content/Site/front-responsive.css",
-                        "~/Content/site.css"));
+                        "~/Content/site.css"
+                        ));
 
             //Module Bundles
             //Javascript

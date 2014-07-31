@@ -1,0 +1,52 @@
+﻿<!-- BEGIN Inbox -->
+<div class="box-content">
+    <div class="tabbable">
+        <ul class="nav nav-tabs" id="messagesTab">
+            <li class="active"><a data-toggle="tab" href="#messages"><i class="fa fa-inbox"></i>Messages (2)</a></li>
+            <li><a data-toggle="tab" href="#patientTransfer"><i class="fa fa-exchange"></i>Patient Transfer (3)</a></li>
+            <li><a data-toggle="tab" href="#generalRequest"><i class="fa fa-exchange"></i>General Request (1)</a></li>
+        </ul>
+
+        <div class="tab-content" id="messagesTabContent">
+            <div id="messages" class="tab-pane fade in active">
+                @*Beginning of _messages.shtml*@
+                
+                        @Html.Partial("_Messages")
+                   
+                @*End of _messages.shtml*@
+            </div>
+
+            <div id="patientTransfer" class="tab-pane fade">
+                @*Beginning of patient-transfer-list.shtml*@
+                
+                      @Html.Partial("_PatientTransfer")
+                       
+                @*End of patient-transfer-list.shtml*@
+            </div>
+
+            <div id="generalRequest" class="tab-pane fade">
+                @*Beginning of general-request-list.shtml*@
+                  
+                     @Html.Partial("_GeneralRequest")
+                        
+                @*End of general-request-list.shtml*@
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<!-- END Inbox -->
+
+<!--#include virtual="/includes/teasers/new-message-modal.shtml" -->
+        @Html.Partial("_NewMessage")
+
+<!--#include virtual="/includes/teasers/new-patient-transfer-modal.shtml" -->
+        @Html.Partial("_NewTransfer")
+
+<!--#include virtual="/includes/teasers/new-general-request-modal.shtml" -->
+        @Html.Partial("_NewRequest")
+
+<!--page specific plugin scripts-->
+
+                   

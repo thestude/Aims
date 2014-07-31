@@ -1,0 +1,133 @@
+﻿<!-- Heat Related Illness Form -->
+
+
+  <div class="content-header">
+        <div class="pull-right right">
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary">Response Forms</button>
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li class="active"><a href="@Url.Action("FormHeat", "FormResponse")">Heat Related Illness</a></li>
+                    <li><a href="@Url.Action("FormCompliance", "FormResponse")">NIMS Compliance Assessment</a></li>
+                    <li><a href="@Url.Action("Index", "FormResponse")">Hurricane Isaac ED Form</a></li>
+                </ul>
+            </div>
+        </div>
+       <h1><i class="fa fa-clipboard"></i>Form Response</h1>
+    </div>
+
+<h3>Heat Related Illness Form</h3>
+
+<hr>
+
+<form class="form-horizontal" action="#">
+
+    <div class="form-group">
+        <label class="col-md-3 control-label">Age Group</label>
+        <div class="col-md-9 controls">
+            <select class="form-control bs-select" data-width="100%">
+                <option value="42" selected>1 to 14</option>
+                <option value="43">15 to 24</option>
+                <option value="44">25 to 44</option>
+                <option value="45">45 to 59</option>
+                <option value="46">60 and above</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-3 control-label">Sex</label>
+        <div class="col-md-9 controls">
+            <select class="form-control bs-select" data-width="100%">
+                <option value="42" selected>Male</option>
+                <option value="43">Female</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-3 control-label">Contributing Factor</label>
+        <div class="col-md-9 controls">
+            <select class="form-control bs-select" data-width="100%">
+                <option value="49">Work Related</option>
+                <option value="50" selcted>Athletic Related</option>
+                <option value="51">Other</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-3 control-label">Status</label>
+        <div class="col-md-9 controls">
+            <select class="form-control bs-select" data-width="100%">
+                <option value="52" selected>Not Admitted</option>
+                <option value="53">Admitted</option>
+                <option value="54">Fatality</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="well well-sm right">
+        <a href="#" class="btn btn-default btn-xl"><i class="fa fa-refresh"></i> Reset</a>
+        <a href="#" class="btn btn-primary btn-xl"><i class="fa fa-floppy-o"></i> Save</a>
+    </div>
+
+</form>
+
+<hr>
+
+<!-- Heat Related Illness Form Submissions -->
+<h3>Form Submissions</h3>
+<div class="no-more-tables">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Timestamp</th>
+                <th>Age Group</th>
+                <th>Sex</th>
+                <th>Contributing Factor</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td data-title="Timestamp">05/25/2014 20:23</td>
+                <td data-title="Age Group">1 to 14</td>
+                <td data-title="Sex">Male</td>
+                <td data-title="Contributing Factor">Athletic Related</td>
+                <td data-title="Status">Not Admitted</td>
+            </tr>
+            <tr>
+                <td data-title="Timestamp">05/25/2014 20:23</td>
+                <td data-title="Age Group">1 to 14</td>
+                <td data-title="Sex">Male</td>
+                <td data-title="Contributing Factor">Athletic Related</td>
+                <td data-title="Status">Not Admitted</td>
+            </tr>
+            <tr>
+                <td data-title="Timestamp">05/25/2014 20:23</td>
+                <td data-title="Age Group">1 to 14</td>
+                <td data-title="Sex">Male</td>
+                <td data-title="Contributing Factor">Athletic Related</td>
+                <td data-title="Status">Not Admitted</td>
+            </tr>
+            <tr>
+                <td data-title="Timestamp">05/25/2014 20:23</td>
+                <td data-title="Age Group">1 to 14</td>
+                <td data-title="Sex">Male</td>
+                <td data-title="Contributing Factor">Athletic Related</td>
+                <td data-title="Status">Not Admitted</td>
+            </tr>
+            <tr>
+                <td data-title="Timestamp">05/25/2014 20:23</td>
+                <td data-title="Age Group">1 to 14</td>
+                <td data-title="Sex">Male</td>
+                <td data-title="Contributing Factor">Athletic Related</td>
+                <td data-title="Status">Not Admitted</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

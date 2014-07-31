@@ -1,0 +1,13 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml"; //Must be relative (refers to main apps layout)
+}
+
+@RenderBody()
+@section scripts {
+     @Scripts.Render("~/bundles/js/modules/Apple")
+}
+@section styles {
+    @Styles.Render("~/bundles/css/modules/Apple")
+}
+
+

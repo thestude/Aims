@@ -129,12 +129,14 @@ namespace AIMS.Infrastructure.NHibernate
             var sc = new SchemaExport(config);
 
             if (_dbSchemaPath != null)
+            {
 #if DEBUG
                 //Only execute against database during debug
                 sc.SetOutputFile(_dbSchemaPath).Execute(true, true, false);
 #else
                 sc.SetOutputFile(_dbSchemaPath).Execute(true, false, false);
 #endif
+            }
             else
             {
                 throw new InvalidPathException("Could not locate App_Data folder");

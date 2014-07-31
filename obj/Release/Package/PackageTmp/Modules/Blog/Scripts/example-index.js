@@ -1,0 +1,1 @@
+﻿alert("Blog alert from a module specific javascript.");

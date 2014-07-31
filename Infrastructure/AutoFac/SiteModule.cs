@@ -1,6 +1,7 @@
 ﻿using AIMS.Helpers;
-using AIMS.Modules.FacilitySetup.Services;
+using AIMS.Modules.OrganizationSetup.Services;
 using AIMS.Infrastructure.Logging;
+using AIMS.Modules.StatusUpdate.Services;
 using Autofac;
 
 namespace AIMS.Infrastructure.AutoFac
@@ -12,7 +13,8 @@ namespace AIMS.Infrastructure.AutoFac
             builder.RegisterType<NLogLogger>().As<ILogger>().SingleInstance();
             builder.RegisterType<UserActivity>().As<IUserActivity>().InstancePerRequest();
             builder.RegisterType<UserInfoHelper>().As<IUserInfoHelper>().InstancePerDependency();
-            builder.RegisterType<FacilitySetupService>().As<IFacilitySetupService>().InstancePerDependency();
+            builder.RegisterType<OrganizationSetupService>().As<IOrganizationSetupService>().InstancePerDependency();
+            builder.RegisterType<StatusUpdateService>().As<IStatusUpdateService>().InstancePerDependency();
         }
     }
 }

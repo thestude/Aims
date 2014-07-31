@@ -182,17 +182,19 @@ namespace AIMS.Models {
             set;
         }
 
-
-        /// <summary>
-        /// There are no comments for OrganizationCapabilities in the schema.
-        /// </summary>
-        public virtual OrganizationCapabilities OrganizationCapabilities
+        public virtual string Capabilities
         {
             get;
             set;
         }
 
         public virtual Iesi.Collections.Generic.ISet<AimsUser> Users
+        {
+            get;
+            set;
+        }
+
+        public virtual Iesi.Collections.Generic.ISet<Contact> Contacts
         {
             get;
             set;

@@ -1,0 +1,22 @@
+﻿<!--#include virtual="includes/top.shtml" -->
+<div class="messages">
+
+    <div class="content-header">
+        <h1><i class="fa fa-exchange"></i>Patient Transfer</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <!--#include virtual="includes/teasers/patient-transfer-list.shtml" -->
+              @Html.Partial("_TransferList")  
+        </div>
+    </div>
+
+</div>
+<!--#include virtual="includes/bottom.shtml" -->
+
+<!--#include virtual="/includes/teasers/new-patient-transfer-modal.shtml" -->
+   
+         @Html.Partial("_NewTransfer")
+             
+<!--page specific plugin scripts-->

@@ -32,7 +32,7 @@ namespace AIMS.Models {
         /// <summary>
         /// There are no comments for Status in the schema.
         /// </summary>
-        public virtual bool Status
+        public virtual string Status
         {
             get;
             set;

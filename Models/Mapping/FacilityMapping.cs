@@ -23,14 +23,24 @@ namespace AIMS.Models.Mapping {
                 k.Unique(true);
                 k.Update(true);
             });
-            //Property(x => x.OnGenerator, map => map.NotNullable(true));
-            //Property(x => x.Status, map => map.NotNullable(true));
-            //Property(x => x.ProjectedIBA);
-            //Property(x => x.Notes);
             ManyToOne(x => x.FacilityType, colmap =>
             {
                 colmap.Column("FacilityTypeId");
                 colmap.Cascade(Cascade.Persist);
+            });
+            Set(x => x.FacilityStatuses, colmap =>
+            {
+                colmap.Key(x =>
+                {
+                    x.Column("FacilityId");
+                    x.ForeignKey("facility_status_fk");
+                });
+                colmap.Inverse(true);
+                colmap.Cascade(Cascade.Persist);
+            }, map =>
+            {
+                map.OneToMany();
+
             });
             Set(x => x.Beds, colmap =>
             {

@@ -1,0 +1,324 @@
+﻿@using AIMS.Helpers
+@model AIMS.Modules.OrganizationSetup.Models.OrganizationSetUp
+@{
+    ViewBag.Title = "Organization Set Up";
+    var bedTypes = Model.BedTypes;
+}
+<div class="edit-organization">
+
+    <div class="content-header">
+        <h1><i class="fa fa-edit"></i> Edit Organization</h1>
+    </div>
+    <div id="error-placeholder"></div>
+    <div class="row">
+        <div class="col-md-12">
+
+            <form class="form-horizontal" data-bind="submit: save">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <fieldset>
+                            <legend>Organization Information</legend>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.OrganizationName, new { @class = "col-sm-3" })
+                                <div class="col-sm-9">
+                                    <input class="form-control" disabled data-bind="value: organizationName" />
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <br><br>
+
+                        <fieldset>
+                            <legend>Address</legend>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.StreetAddress, new { @class = "col-sm-3" })
+                                <div class="col-sm-9">
+                                    <input class="form-control" data-bind="value: streetAddress" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.City, new { @class = "col-sm-3" })
+                                <div class="col-sm-9">
+                                    <input class="form-control" data-bind="value: city" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.State, new { @class = "col-sm-3" })
+                                <div class="col-sm-9">
+                                    <select class="bs-select" disabled data-width="100%" data-bind="value: state">
+                                        <option value="">Select a state</option>
+                                        @foreach (var state in CommonLists.GetStates())
+                                        {
+                                            <option value="@state">@state</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.ZipCode, new { @class = "col-sm-3" })
+                                <div class="col-sm-9">
+                                    <input class="form-control" data-bind="value: zipCode" />
+                                </div>
+                            </div>
+
+                        </fieldset>
+
+                        <br><br>
+
+                        <fieldset>
+                            <legend>Contacts</legend>
+                            <table class="table table-hover table-striped table-advance">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Title</th>
+                                        <th>Phone Number</th>
+                                        <th>Email Address</th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-bind="foreach: contacts">
+                                    <tr>
+                                        <td>
+                                            <div data-bind='visible: showLabels'>
+                                                <strong><span data-bind='text: firstName'></span>&nbsp; <span data-bind='text: lastName'></span> </strong>
+                                            </div>
+                                            <div data-bind='visible: showEdit'>
+                                                <input class="form-control input-sm" data-bind="value: firstName" />
+                                                <input class="form-control input-sm" data-bind="value: lastName" />
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div data-bind='visible: showLabels'>
+                                                <span data-bind='text: title'></span>
+                                            </div>
+                                            <div data-bind='visible: showEdit'>
+                                                <input class="form-control input-sm" data-bind="value: title" />
+                                            </div>  
+                                        </td>
+                                        <td>
+                                            <div data-bind='visible: showLabels'>
+                                                <span data-bind='text: phoneNumber'></span>
+                                            </div>
+                                            <div data-bind='visible: showEdit'>
+                                                <input class="form-control input-sm" data-bind="value: phoneNumber" />
+                                            </div> 
+                                        </td>
+                                        <td>
+                                            <div data-bind='visible: showLabels'>
+                                                <span data-bind='text: emailAddress'></span>
+                                            </div>
+                                            <div data-bind='visible: showEdit'>
+                                                <input class="form-control input-sm" data-bind="value: emailAddress" />
+                                            </div> 
+                                        </td>
+                                        <td align="right">
+                                            <div data-bind='visible: showLabels'>
+                                                <a href="#" data-toggle="modal" data-bind='click: $root.editContact' class="btn btn-xs btn-primary" title="edit"><i class="fa fa-edit"></i></a>
+                                                <a href="#" data-toggle="modal" data-bind='click: $root.removeContact' class="btn btn-xs btn-default" title="delete"><i class="fa fa-trash-o"></i></a>
+                                            </div>
+                                            <div data-bind='visible: showEdit'>
+                                                <a href="#" class="btn btn-primary btn-sm" data-bind="click: $root.updateContact">Update</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="well well-sm">
+                                <div class="form-group">
+                                    <div class="col-sm-3">
+                                        <label class="control-label">First Name</label>
+                                        <div class="controls">
+                                            <input class="form-control input-sm" data-bind="value: newContactFirstName" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label class="control-label">Last Name</label>
+                                        <div class="controls">
+                                            <input class="form-control input-sm" data-bind="value: newContactLastName" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label class="control-label">Title</label>
+                                        <div class="controls">
+                                            <input class="form-control input-sm" data-bind="value: newContactTitle" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-3">
+                                        <label class="control-label">Phone Number</label>
+                                        <div class="controls">
+                                            <input class="form-control input-sm" data-bind="value: newContactPhoneNumber" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label class="control-label">Email</label>
+                                        <div class="controls">
+                                            <input class="form-control input-sm" data-bind="value: newContactEmailAddress" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2 pad-for-no-label">
+                                        <button class="btn btn-primary btn-sm" data-bind="click: addContact"><i class="fa fa-plus"></i> Add Contact</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </fieldset>
+                    </div>
+                </div>
+
+                <br><br>
+
+                <!-- Start Beds -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <fieldset>
+                            <legend>Beds</legend>
+
+                            <table class="table table-hover table-striped table-advance">
+                                <thead>
+                                    <tr>
+                                        <th>Bed Type</th>
+                                        <th>Licensed Capacity</th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-bind="foreach: beds">
+                                    <tr>
+                                        <td>
+                                            <span data-bind='text: name'></span>
+                                        </td>
+                                        <td>
+                                            <div data-bind='visible: showLabels'>
+                                                <span data-bind='text: licensedCapacity'></span>
+                                            </div>
+                                            <div data-bind='visible: showEdit'>
+                                                <input class="form-control input-sm" data-bind="value: licensedCapacity" />
+                                            </div>
+                                        </td>
+                                        
+                                        <td align="right">
+                                            <div data-bind='visible: showLabels'>
+                                                <a href="#" data-toggle="modal" data-bind='click: $root.editBed' class="btn btn-xs btn-primary" title="edit"><i class="fa fa-edit"></i></a>
+                                                <a href="#" data-toggle="modal" data-bind='click: $root.removeBed' class="btn btn-xs btn-default" title="delete"><i class="fa fa-trash-o"></i></a>
+                                            </div>
+                                            <div data-bind='visible: showEdit'>
+                                                <a href="#" class="btn btn-primary btn-sm" data-bind="click: $root.updateBed">Update</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="well well-sm">
+                                <div class="form-group">
+                                    <div class="col-sm-3">
+                                        <label class="control-label">Bed Types</label>
+                                        <div class="controls">
+                                            <select class="form-control input-sm" data-bind="value: newBedType">
+                                                <option value=""> Select a bed type </option>
+                                                @foreach (var type in Model.BedTypes)
+                                                {
+                                                    <option>@type.Name</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label class="control-label">Licensed Capacity</label>
+                                        <div class="controls">
+                                            <input class="form-control input-sm" data-bind="value: newLicensedCapacity" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2 pad-for-no-label">
+                                        <button class="btn btn-primary btn-sm" data-bind="click: addBed"><i class="fa fa-plus"></i> Add Bed Type</button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </fieldset>
+                    </div>
+                </div>
+                <!-- End Beds -->
+
+                <br><br>
+
+                <!-- Start Staff -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <fieldset>
+                            <legend>Staff</legend>
+                            <div data-bind='foreach: staffTypes'>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" data-bind='value: name, checked: $root.selectedStaffTypes,click: $root.toggleStaff'> 
+                                    <!--ko text: name--><!--/ko-->
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <!-- End Staff -->
+
+                <br><br>
+
+                <!-- Start Systems -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <fieldset>
+                            <legend>Systems</legend>
+                            <div data-bind='foreach: systemsTypes'>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" data-bind='value: name, checked: $root.selectedSystemsTypes,click: $root.toggleSystems'>
+                                    <!--ko text: name--><!--/ko-->
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <!-- End Systems -->
+
+                <br><br>
+
+                <!-- Start Fuel -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <fieldset>
+                            <legend>Fuel</legend>
+                            <div data-bind='foreach: fuelTypes'>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" data-bind='value: name, checked: $root.selectedFuelTypes,click: $root.toggleFuel'>
+                                    <!--ko text: name--><!--/ko-->
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <!-- End Fuel -->
+
+                <br><br>
+
+                <div class="well right">
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-share-square-o"></i> Save Changes</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    @{
+        var sModel = Newtonsoft.Json.JsonConvert.SerializeObject(Model);
+    }
+    var initialData = @Html.Raw(sModel);
+    var updateUrl = '@Url.Content("~/organizationsetup/update")';
+   
+</script>

@@ -1,0 +1,68 @@
+﻿<!-- General Request List -->
+<div class="mail-page row">
+    <div class="col-sm-3 col-md-2">
+      <div class="mail-nav">
+        <ul>
+            <li><a href="#" data-toggle="modal" data-target="#newGeneralRequest"><i class="fa fa-edit"></i> New General Request</a></li>
+            <li class="divider hidden-xs"></li>
+            <li class="active hidden-xs"><a href="messages.shtml"><i class="fa fa-envelope"></i> Requests (2)</a></li>
+            <li class="hidden-xs"><a href="#"><i class="fa fa-star starred"></i> Starred</a></li>
+            <li class="hidden-xs"><a href="#"><i class="fa fa-external-link"></i> Sent</a></li>
+            <li class="hidden-xs"><a href="#"><i class="fa fa-trash-o"></i> Deleted</a></li>
+            <li class="divider"></li>
+            <li class="hidden-xs">Request Priority</li>
+            <li class="hidden-xs clearfix"><a href="#"><i class="fa fa-circle red pull-left"></i> Response Required</a></li>
+            <li class="hidden-xs clearfix"><a href="#"><i class="fa fa-circle green pull-left"></i> Resolved</a></li>
+            <li class="hidden-xs clearfix"><a href="#"><i class="fa fa-circle light-gray pull-left"></i> Normal</a></li>
+        </ul>
+        </div>
+    </div>
+    <div class="col-sm-9 col-md-10">
+        <div class="btn-toolbar float-toolbar">
+            <div class="btn-group btn-group-sm">
+                <a class="btn show-tooltip" title="Archive selected" href="#"><i class="fa fa-trash-o"></i></a>
+                <a class="btn show-tooltip" title="Mark as unread" href="#"><i class="fa fa-flag"></i></a>
+                <a class="btn show-tooltip" title="Mark as resolved" href="#"><i class="fa fa-thumbs-up"></i></a>
+                <a class="btn show-tooltip" title="Refresh" href="#"><i class="fa fa-repeat"></i></a>
+            </div>
+        </div>
+        <div class="table-big">
+            <table class="table table-advance dataTable" id="table2">
+                <thead>
+                    <tr>
+                        <th style="width:18px"><input type="checkbox" /></th>
+                        <th style="width:18px"></th>
+                        <th>From</th>
+                        <th>Type</th>
+                        <th>Category</th>
+                        <th>Summary</th>
+                        <th>Status</th>
+                        <th class="text-right">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-flag-red">
+                        <td><input type="checkbox" /></td>
+                        <td><a href="#"><i class="fa fa-star"></i></a></td>
+                        <td><strong><a href="general-request-item.shtml">Memorial Hospial</a></strong></td>
+                        <td>Supply</td>
+                        <td>Medication</td>
+                        <td>Out of bandages</td>
+                        <td><div class="label label-danger">Active</div></td>
+                        <td class="text-right"><strong>today 20:23</strong></td>
+                    </tr>
+                    <tr class="table-flag-green">
+                        <td><input type="checkbox" /></td>
+                        <td><a href="#"><i class="fa fa-star"></i></a></td>
+                        <td><a href="general-request-item.shtml">University Medical Center</a></td>
+                        <td>Staff</td>
+                        <td>ER Nurses</td>
+                        <td>Need triage nurses for the ER</td>
+                        <td><div class="label label-success">Resolved</div></td>
+                        <td class="text-right">12/20/2012 6:31</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div> 

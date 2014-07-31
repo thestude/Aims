@@ -144,7 +144,6 @@ function calculateFuel(action, row, buttonClicked) {
     }
 
     if (action == 'change') {
-        console.log(amountShort);
         if (amountShort <= 0) {
             row.attr('class', 'form-group border-left border-green calculate-fuel-row');
             row.find('button.selected').removeClass('selected');

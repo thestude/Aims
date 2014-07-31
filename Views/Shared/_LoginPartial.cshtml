@@ -1,0 +1,75 @@
+﻿@using AIMS.Helpers
+@{
+    var userInfoHelper = new UserInfoHelper();
+    var userInfo = userInfoHelper.GetUserInfo(User.Identity.Name);
+    var fullName = userInfo.FullName;
+    var organizationName = (userInfo.Organizations != null) ? userInfo.Organizations.FirstOrDefault().Name : "None";
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    <!-- BEGIN Button User -->
+    <li class="user-profile two-line-navbar-btn">
+        <a data-toggle="dropdown" href="#" class="user-menu dropdown-toggle">
+            <span class="hhh" id="user_info">
+                <span class="user-info-row">
+                    <span class="user-info-name">@fullName</span>
+                </span>
+                <span class="user-info-row">
+                    <span class="user-info-facility">@organizationName</span> @*- <span class="user-info-region">Region 7</span>*@
+                </span>
+            </span>
+            <i class="fa fa-caret-down"></i>
+        </a>
+
+        <!-- BEGIN User Dropdown -->
+        <ul class="dropdown-menu dropdown-navbar" id="user_menu">
+            <li class="nav-header">
+                <i class="fa fa-clock-o"></i>
+                Logged in since 20:45
+            </li>
+
+            <li>
+                <a href="@Url.Action("Index", "ChangePassword")">
+                    <i class="fa fa-user"></i>
+                    Edit Profile
+                </a>
+            </li>
+
+            <li>
+                <a href="@Url.Action("Index","OrganizationSetup")">
+                    <i class="fa fa-hospital-o"></i>
+                    Edit Facility
+                </a>
+            </li>
+
+            <li>
+                <a href="@Url.Action("Index", "Help")">
+                    <i class="fa fa-question"></i>
+                    Help
+                </a>
+            </li>
+
+            <li class="divider visible-xs"></li>
+
+            <li class="visible-xs">
+                <a href="#">
+                    <i class="fa fa-envelope"></i>
+                    Messages
+                    <span class="badge badge-success">3</span>
+                </a>
+            </li>
+
+            <li class="divider"></li>
+
+            <li>
+                <a href="#">
+                    <i class="fa fa-off"></i>
+                    Logout
+                </a>
+            </li>
+        </ul>
+        <!-- BEGIN User Dropdown -->
+    </li>
+    <!-- END Button User -->
+}

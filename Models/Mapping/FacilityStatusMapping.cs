@@ -1,4 +1,4 @@
-﻿using NHibernate.Mapping.ByCode.Conformist;
+﻿using NHibernate.Mapping.ByCode;
 
 
 namespace AIMS.Models.Mapping
@@ -15,6 +15,11 @@ namespace AIMS.Models.Mapping
             Property(x => x.Status, map => map.NotNullable(true));
             Property(x => x.ProjectedIba);
             Property(x => x.Notes);
+            ManyToOne(x => x.Facility, colmap =>
+            {
+                colmap.Column("FacilityId");
+                colmap.Cascade(Cascade.Persist);
+            });
         }
     }
 }

@@ -1,0 +1,96 @@
+﻿<!-- Move People Modal -->
+<div class="modal fade" id="movePeople" tabindex="-1" role="dialog" aria-labelledby="movePeopleLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form class="mail-compose form-horizontal" action="#">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="movePeopleLabel"><i class="fa fa-ambulance"></i> Move People</h4>
+      </div>
+      <div class="modal-body">
+        <fieldset>
+            <legend>Destination Facility</legend>
+            <div class="form-group">
+                <label class="control-label col-sm-3">State</label>
+                <div class="col-sm-9">
+                    <select class="form-control bs-select" data-width="100%">
+                        <option selected>Alabama</option>
+                        <option>Option 2</option>
+                        <option>Option 3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3">Facility Type</label>
+                <div class="col-sm-9">
+                    <select class="form-control bs-select" data-width="100%">
+                        <option selected>Hospital</option>
+                        <option>Option 2</option>
+                        <option>Option 3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3">Facility</label>
+                <div class="col-sm-9">
+                    <select class="form-control bs-select" data-width="100%">
+                        <option selected>Memorial Hospital</option>
+                        <option>Option 2</option>
+                        <option>Option 3</option>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Comments</legend>
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <textarea class="form-control wysihtml5" rows="6"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <div class="checkbox">
+                        <label>Generate Transport Manifest <input type="checkbox" id="generate-manifest" value=""></label>
+                    </div>
+                </div>
+            </div>
+            <!-- If Generate Transport Manifest Checked -->
+            <div id="show-for-generate-manifest" class="hidden-fieldset well hide">
+                <div class="form-group">
+                    <label for="" class="col-sm-3">Title</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="" class="col-sm-3">Description</label>
+                    <div class="col-sm-9">
+                        <textarea class="form-control" rows="6"></textarea>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+      </div>
+      <div class="modal-footer">
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary"><i class="fa fa-share-square-o"></i> Submit</button>
+            <a type="button" class="btn" data-dismiss="modal">Cancel</a>
+          </div>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(function() {
+        $('input#generate-manifest').bind('change', function() {
+            if ($('input#generate-manifest').prop('checked')) {
+                $('#show-for-generate-manifest').removeClass('hide').fadeIn('fast');
+            } else {
+                $('#show-for-generate-manifest').hide();
+            }
+        });
+    });
+</script>

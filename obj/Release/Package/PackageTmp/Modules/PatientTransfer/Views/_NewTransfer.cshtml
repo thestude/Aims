@@ -1,0 +1,80 @@
+﻿<!-- New Patient Transfer Modal -->
+<div class="modal fade" id="newPatientTransfer" tabindex="-1" role="dialog" aria-labelledby="newPatientTransferLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form class="mail-compose form-horizontal" action="#">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="newPatientTransferLabel"><i class="fa fa-edit"></i>Patient Transfer Request</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="" class="col-sm-3">Patient ID:</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-sm-3">First Name:</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-sm-3">Last Name:</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-sm-3">Medical Record Type:</label>
+                        <div class="col-sm-9">
+                            <select class="form-control">
+                                <option value="1">None</option>
+                                <option value="2">Electronic</option>
+                                <option value="3">Paper</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-sm-3">Priority:</label>
+                        <div class="col-sm-9">
+                            <select class="form-control">
+                                <option value="1">Normal</option>
+                                <option value="1">Response Required</option>
+                                <option value="2">Urgent</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-sm-3">Current Status:</label>
+                        <div class="col-sm-9">
+                            <select class="form-control">
+                                <option value="1">Normal</option>
+                                <option value="1">Response Required</option>
+                                <option value="2">Urgent</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-9 col-sm-offset-3">
+                            <label>
+                                <input type="Checkbox" />
+                                Transportation Required</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control wysihtml5" rows="6" placeholder="Comments"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-share-square-o"></i>Send</button>
+                        <a type="button" class="btn" data-dismiss="modal">Cancel</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

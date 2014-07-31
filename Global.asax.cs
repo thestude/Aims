@@ -1,4 +1,5 @@
-﻿using Autofac;
+﻿using AIMS.Infrastructure.AutoFac;
+using Autofac;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Helpers;
@@ -7,6 +8,7 @@ using System.Security.Claims;
 using System.Web.Optimization;
 using Autofac.Integration.Mvc;
 using Autofac.Extras.CommonServiceLocator;
+using FluentValidation.Mvc;
 using Microsoft.Practices.ServiceLocation;
 
 namespace AIMS
@@ -47,6 +49,12 @@ namespace AIMS
 
             //Add the custom view engine
             ViewEngines.Engines.Clear();
+
+            FluentValidationModelValidatorProvider.Configure(provider =>
+            {
+                provider.ValidatorFactory = new AutofacValidatorFactory(Container);
+            });
+
             var customViewEngine = new ModularConventionViewEngine();
             ViewEngines.Engines.Add(customViewEngine);
 

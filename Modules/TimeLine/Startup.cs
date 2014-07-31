@@ -3,15 +3,15 @@ using System.Threading.Tasks;
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(AIMS.Startup))]
+[assembly: OwinStartup(typeof(AIMS.Modules.TimeLine.Startup))]
 
-namespace AIMS
+namespace AIMS.Modules.TimeLine
 {
     public class Startup
     {
         public void Configuration(IAppBuilder app)
         {
-            app.MapSignalR();
+            app.MapSignalR(); 
         }
     }
 }
